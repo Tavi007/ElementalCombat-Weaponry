@@ -1,16 +1,16 @@
-package Tavi007.ElementalCombat.init;
+package Tavi007.ElementalCombat_Weaponry.init;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import Tavi007.ElementalCombat.ElementalCombat;
-import Tavi007.ElementalCombat.items.StyleSwitchingSword;
-import Tavi007.ElementalCombat.items.ArmorMaterial;
-import Tavi007.ElementalCombat.items.BiomeDependentArmor;
-import Tavi007.ElementalCombat.items.DayNightArmor;
-import Tavi007.ElementalCombat.items.ElementSwitchingSword;
-import Tavi007.ElementalCombat.items.MirrorArmor;
+import Tavi007.ElementalCombat_Weaponry.ElementalCombatWeaponry;
+import Tavi007.ElementalCombat_Weaponry.items.StyleSwitchingSword;
+import Tavi007.ElementalCombat_Weaponry.items.ArmorMaterial;
+import Tavi007.ElementalCombat_Weaponry.items.BiomeDependentArmor;
+import Tavi007.ElementalCombat_Weaponry.items.DayNightArmor;
+import Tavi007.ElementalCombat_Weaponry.items.ElementSwitchingSword;
+import Tavi007.ElementalCombat_Weaponry.items.MirrorArmor;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.AxeItem;
@@ -24,11 +24,11 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ItemList {
-	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ElementalCombat.MOD_ID);
+	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ElementalCombatWeaponry.MOD_ID);
 
-	private static Properties singleStack = new Item.Properties().group(ElementalCombat.ELEMENTAL_COMBAT_GROUP).maxStackSize(1);
-	private static Properties singleStackWMaxDmg = new Item.Properties().group(ElementalCombat.ELEMENTAL_COMBAT_GROUP).maxStackSize(1);
-	private static Properties fullStack = new Item.Properties().group(ElementalCombat.ELEMENTAL_COMBAT_GROUP).maxStackSize(64);
+	private static Properties singleStack = new Item.Properties().group(ElementalCombatWeaponry.ELEMENTAL_COMBAT_GROUP).maxStackSize(1);
+	private static Properties singleStackWMaxDmg = new Item.Properties().group(ElementalCombatWeaponry.ELEMENTAL_COMBAT_GROUP).maxStackSize(1);
+	private static Properties fullStack = new Item.Properties().group(ElementalCombatWeaponry.ELEMENTAL_COMBAT_GROUP).maxStackSize(64);
 	
 	//essence
 	public static final RegistryObject<Item> ESSENCE_FIRE 		= ITEMS.register("essence_fire", () -> new Item(fullStack));

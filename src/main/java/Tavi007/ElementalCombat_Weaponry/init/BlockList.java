@@ -1,6 +1,6 @@
-package Tavi007.ElementalCombat.init;
+package Tavi007.ElementalCombat_Weaponry.init;
 
-import Tavi007.ElementalCombat.ElementalCombat;
+import Tavi007.ElementalCombat_Weaponry.ElementalCombatWeaponry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
@@ -11,10 +11,10 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockList {
-	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, ElementalCombat.MOD_ID);
-	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ElementalCombat.MOD_ID);
+	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, ElementalCombatWeaponry.MOD_ID);
+	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ElementalCombatWeaponry.MOD_ID);
 
-	private static Properties standardItemProperties = new Item.Properties().group(ElementalCombat.ELEMENTAL_COMBAT_GROUP).maxStackSize(64);
+	private static Properties standardItemProperties = new Item.Properties().group(ElementalCombatWeaponry.ELEMENTAL_COMBAT_GROUP).maxStackSize(64);
 	
 	public static final RegistryObject<Block> ESSENCE_BLOCK_FIRE 		= BLOCKS.register("essence_block_fire", () -> new Block(Block.Properties.create(Material.IRON)));
 	public static final RegistryObject<Block> ESSENCE_BLOCK_ICE 		= BLOCKS.register("essence_block_ice", () -> new Block(Block.Properties.create(Material.IRON)));

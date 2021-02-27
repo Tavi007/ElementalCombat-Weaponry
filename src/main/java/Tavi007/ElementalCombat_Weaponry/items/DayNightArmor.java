@@ -1,14 +1,14 @@
-package Tavi007.ElementalCombat.items;
+package Tavi007.ElementalCombat_Weaponry.items;
 
 import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Nullable;
 
-import Tavi007.ElementalCombat.ElementalCombat;
 import Tavi007.ElementalCombat.ElementalCombatAPI;
 import Tavi007.ElementalCombat.capabilities.defense.DefenseData;
 import Tavi007.ElementalCombat.util.ElementalCombatNBTHelper;
+import Tavi007.ElementalCombat_Weaponry.ElementalCombatWeaponry;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -71,13 +71,13 @@ public class DayNightArmor extends  ArmorItem {
     public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
     	long time = entity.world.getDayTime();
     	if (time >= 2000 && time<=10000) {
-            return ElementalCombat.MOD_ID + ":textures/models/armor/clock_day_layer_1.png";
+            return ElementalCombatWeaponry.MOD_ID + ":textures/models/armor/clock_day_layer_1.png";
     	}
     	else if (time >= 14000 && time<=22000) {
-            return ElementalCombat.MOD_ID + ":textures/models/armor/clock_night_layer_1.png";
+            return ElementalCombatWeaponry.MOD_ID + ":textures/models/armor/clock_night_layer_1.png";
     	}
     	else {
-            return ElementalCombat.MOD_ID + ":textures/models/armor/clock_sunset_layer_1.png";
+            return ElementalCombatWeaponry.MOD_ID + ":textures/models/armor/clock_sunset_layer_1.png";
     	}
     }
 }

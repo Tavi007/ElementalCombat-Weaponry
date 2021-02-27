@@ -1,9 +1,9 @@
-package Tavi007.ElementalCombat.items;
+package Tavi007.ElementalCombat_Weaponry.items;
 
 import java.util.function.Supplier;
 
-import Tavi007.ElementalCombat.ElementalCombat;
-import Tavi007.ElementalCombat.init.ItemList;
+import Tavi007.ElementalCombat_Weaponry.ElementalCombatWeaponry;
+import Tavi007.ElementalCombat_Weaponry.init.ItemList;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.IArmorMaterial;
@@ -39,7 +39,7 @@ public enum ArmorMaterial implements IArmorMaterial {
 	private final Lazy<Ingredient> repairMaterialLazy;
 
 	private ArmorMaterial(String nameIn, int maxDamageFactorIn, int[] damageReductionAmountArrayIn, int enchantabilityIn, SoundEvent soundEventIn, float toughnessIn, float knockbackResistanceIn, Supplier<Ingredient> repairMaterialSupplier) {
-		this.name = ElementalCombat.MOD_ID + ":" + nameIn;
+		this.name = ElementalCombatWeaponry.MOD_ID + ":" + nameIn;
 		this.maxDamageFactor = maxDamageFactorIn;
 		this.damageReductionAmountArray = damageReductionAmountArrayIn;
 		this.enchantability = enchantabilityIn;
