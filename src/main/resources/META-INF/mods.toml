@@ -1,0 +1,33 @@
+modLoader="javafml" #mandatory
+loaderVersion="[35,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+license="All rights reserved"
+
+#issueTrackerURL="http://my.issue.tracker/" #optional
+[[mods]] #mandatory
+modId = "elementalcombat_weaponry" #mandatory
+version = "1.0" #mandatory
+
+displayName = "Elemental Combat - Weaponry" #mandatory
+#updateJSONURL = "http://myurl.me/" #optional
+#displayURL = "http://example.com/" #optional
+issueTrackerURL="https://github.com/Tavi007/ElementalCombat-Weaponry/issues" #optional
+logoFile = "Icon.png" #optional. A file name (in the root of the mod JAR) containing a logo for display
+credits = "Thanks goes to the Forge Forum" #optional
+authors = "Tavi007" #optional
+
+description= "This mod enhances the combat system by adding elemental and style properties to items, mobs and players. This mod also provides an API for other mods to interact with. "
+
+# A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
+[[dependencies.elementalcombat_weaponry]] #optional
+    modId="forge" #mandatory
+    mandatory=true #mandatory
+    versionRange="[35,)" #mandatory
+    ordering="NONE"
+    side="BOTH"
+# Here's another dependency
+[[dependencies.elementalcombat_weaponry]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.4]"
+    ordering="NONE"
+    side="BOTH"
