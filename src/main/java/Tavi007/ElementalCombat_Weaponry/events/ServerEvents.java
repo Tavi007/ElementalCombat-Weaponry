@@ -82,44 +82,19 @@ public class ServerEvents {
 		}
 	}
 
+	// for the Mirror Armor
 	@SubscribeEvent
 	public static void elementifyLivingHurtEvent(LivingHurtEvent event) {
 		DamageSource damageSource = event.getSource();
-		Entity immediateSource = damageSource.getImmediateSource();
-		
-		// Get combat data from source
-		String sourceElement;
-		String sourceStyle;
-		if(immediateSource instanceof LivingEntity) {
-			AttackData atckCap = ElementalCombatAPI.getAttackDataWithActiveItem((LivingEntity) immediateSource);
-			sourceStyle = atckCap.getStyle();
-			sourceElement = atckCap.getElement();
-		}
-		else if(immediateSource instanceof ProjectileEntity) {
-			AttackData atckCap = ElementalCombatAPI.getAttackData((ProjectileEntity) immediateSource);
-			sourceStyle = atckCap.getStyle();
-			sourceElement = atckCap.getElement();
-		}
-		else {
-			DamageSourceCombatProperties damageSourceProperties = ElementalCombatAPI.getDefaultProperties(damageSource);
-			sourceStyle = damageSourceProperties.getAttackStyle();
-			sourceElement = damageSourceProperties.getAttackElement();
-		}
-
-		//default values in case style or element is empty (which should not happen)
-		if (sourceStyle.isEmpty()) {sourceStyle = ServerConfig.getDefaultStyle();}
-		if (sourceElement.isEmpty()) {sourceElement = ServerConfig.getDefaultElement();}
-		// for mirror armor
-		final String element = sourceElement;
-		final String style = sourceStyle;
+		final AttackData data = ElementalCombatAPI.getAttackData(damageSource);
 		
 		event.getEntityLiving().getArmorInventoryList().forEach( armorStack -> {
 			if(armorStack.getItem() instanceof MirrorArmor) {
 				DefenseData armorDef = ElementalCombatAPI.getDefenseData(armorStack);
 				HashMap<String, Integer> elemMap = new HashMap<String, Integer>();
 				HashMap<String, Integer> styleMap = new HashMap<String, Integer>();
-				elemMap.put(element, ServerConfig.getMaxFactor()/10);
-				styleMap.put(style, ServerConfig.getMaxFactor()/10);
+				elemMap.put(data.getElement(), ServerConfig.getMaxFactor()/10);
+				styleMap.put(data.getStyle(), ServerConfig.getMaxFactor()/10);
 				armorDef.setElementFactor(elemMap);
 				armorDef.setStyleFactor(styleMap);
 			}
