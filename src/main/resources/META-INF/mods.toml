@@ -31,3 +31,10 @@ description= "This mod enhances the combat system by adding elemental and style 
     versionRange="[1.16.4]"
     ordering="NONE"
     side="BOTH"
+# Here's another dependency
+[[dependencies.elementalcombat_weaponry]]
+    modId="elementalcombat"
+    mandatory=true
+    versionRange="[1.2,)"
+    ordering="NONE"
+    side="BOTH"
