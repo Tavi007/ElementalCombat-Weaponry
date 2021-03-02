@@ -1,13 +1,12 @@
 package Tavi007.ElementalCombat_Weaponry.items;
 
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import javax.annotation.Nullable;
 
-import Tavi007.ElementalCombat.ElementalCombatAPI;
+import Tavi007.ElementalCombat.api.AttackDataAPI;
 import Tavi007.ElementalCombat.capabilities.attack.AttackData;
 import Tavi007.ElementalCombat.config.ServerConfig;
 import Tavi007.ElementalCombat.util.ElementalCombatNBTHelper;
@@ -44,7 +43,7 @@ public class ElementSwitchingSword extends SwordItem {
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		ItemStack stack = playerIn.getHeldItem(handIn);
-		AttackData atckData = ElementalCombatAPI.getAttackData(stack);
+		AttackData atckData = AttackDataAPI.get(stack);
 		String nextElement = CollectionUtil.getNext(elements, atckData.getElement(), true);
 		if(nextElement != null) {
 			atckData.setElement(nextElement);
@@ -61,7 +60,7 @@ public class ElementSwitchingSword extends SwordItem {
     public CompoundNBT getShareTag(ItemStack stack)
     {
         CompoundNBT nbt = stack.getTag();
-        ElementalCombatNBTHelper.writeAttackDataToNBT(nbt, ElementalCombatAPI.getAttackData(stack));
+        ElementalCombatNBTHelper.writeAttackDataToNBT(nbt, AttackDataAPI.get(stack));
         return nbt;
     }
     
@@ -74,6 +73,6 @@ public class ElementSwitchingSword extends SwordItem {
     @Override
 	public void readShareTag(ItemStack stack, @Nullable CompoundNBT nbt) {
         stack.setTag(nbt);
-        ElementalCombatAPI.getAttackData(stack).set(ElementalCombatNBTHelper.readAttackDataFromNBT(nbt));
+        AttackDataAPI.get(stack).set(ElementalCombatNBTHelper.readAttackDataFromNBT(nbt));
     }
 }

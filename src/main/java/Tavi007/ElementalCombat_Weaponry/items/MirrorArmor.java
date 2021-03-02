@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import Tavi007.ElementalCombat.ElementalCombatAPI;
+import Tavi007.ElementalCombat.api.DefenseDataAPI;
 import Tavi007.ElementalCombat.util.ElementalCombatNBTHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -31,14 +31,14 @@ public class MirrorArmor extends ArmorItem {
     @Override
     public CompoundNBT getShareTag(ItemStack stack) {
         CompoundNBT nbt = stack.getTag();
-        ElementalCombatNBTHelper.writeDefenseDataToNBT(nbt, ElementalCombatAPI.getDefenseData(stack));
+        ElementalCombatNBTHelper.writeDefenseDataToNBT(nbt, DefenseDataAPI.get(stack));
         return nbt;
     }
 
     @Override
 	public void readShareTag(ItemStack stack, @Nullable CompoundNBT nbt) {
         stack.setTag(nbt);
-        ElementalCombatAPI.getDefenseData(stack).set(ElementalCombatNBTHelper.readDefenseDataFromNBT(nbt));
+        DefenseDataAPI.get(stack).set(ElementalCombatNBTHelper.readDefenseDataFromNBT(nbt));
     }
 
     

@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import Tavi007.ElementalCombat.ElementalCombatAPI;
+import Tavi007.ElementalCombat.api.DefenseDataAPI;
 import Tavi007.ElementalCombat.capabilities.defense.DefenseData;
 import Tavi007.ElementalCombat.util.ElementalCombatNBTHelper;
 import Tavi007.ElementalCombat_Weaponry.ElementalCombatWeaponry;
@@ -35,7 +35,7 @@ public class DayNightArmor extends  ArmorItem {
 		float time = (float) world.getDayTime();
 		// time: 18000 = midnight; 6000 = noon; 12000 and 0 (or 24000) halfway points
 		int lightFactor = Math.round((float) Math.sin(time/12000 * Math.PI) * 35) ;
-		DefenseData data = ElementalCombatAPI.getDefenseData(stack);
+		DefenseData data = DefenseDataAPI.get(stack);
 		HashMap<String,Integer> elemFactors = data.getElementFactor();
 		if(lightFactor>=0) {
 			elemFactors.put("light", lightFactor);
@@ -50,14 +50,14 @@ public class DayNightArmor extends  ArmorItem {
     @Override
     public CompoundNBT getShareTag(ItemStack stack) {
         CompoundNBT nbt = stack.getTag();
-        ElementalCombatNBTHelper.writeDefenseDataToNBT(nbt, ElementalCombatAPI.getDefenseData(stack));
+        ElementalCombatNBTHelper.writeDefenseDataToNBT(nbt, DefenseDataAPI.get(stack));
         return nbt;
     }
 
     @Override
 	public void readShareTag(ItemStack stack, @Nullable CompoundNBT nbt) {
         stack.setTag(nbt);
-        ElementalCombatAPI.getDefenseData(stack).set(ElementalCombatNBTHelper.readDefenseDataFromNBT(nbt));
+        DefenseDataAPI.get(stack).set(ElementalCombatNBTHelper.readDefenseDataFromNBT(nbt));
     }
     
     @OnlyIn(Dist.CLIENT)

@@ -3,19 +3,17 @@ package Tavi007.ElementalCombat_Weaponry.events;
 import java.util.Collection;
 import java.util.HashMap;
 
-import Tavi007.ElementalCombat.ElementalCombatAPI;
+import Tavi007.ElementalCombat.api.AttackDataAPI;
+import Tavi007.ElementalCombat.api.DefenseDataAPI;
 import Tavi007.ElementalCombat.capabilities.attack.AttackData;
 import Tavi007.ElementalCombat.capabilities.defense.DefenseData;
 import Tavi007.ElementalCombat.config.ServerConfig;
-import Tavi007.ElementalCombat.loading.DamageSourceCombatProperties;
 import Tavi007.ElementalCombat_Weaponry.ElementalCombatWeaponry;
 import Tavi007.ElementalCombat_Weaponry.init.ItemList;
 import Tavi007.ElementalCombat_Weaponry.items.MirrorArmor;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
@@ -30,10 +28,10 @@ public class ServerEvents {
 	@SubscribeEvent
 	public static void onLivingDropsEvent(LivingDropsEvent event) {
 		if(!(event.getEntityLiving() instanceof PlayerEntity)) {
-			AttackData atckData = ElementalCombatAPI.getAttackDataWithActiveItem(event.getEntityLiving());
+			AttackData atckData = AttackDataAPI.getWithActiveItem(event.getEntityLiving());
 			addEssenceDropToList(atckData.getElement(), event.getEntityLiving(), event.getDrops(), event.getLootingLevel());
 
-			DefenseData defData = ElementalCombatAPI.getDefenseData(event.getEntityLiving());
+			DefenseData defData = DefenseDataAPI.get(event.getEntityLiving());
 			defData.getElementFactor().forEach((element,factor) -> {
 				if(factor > 0) {
 					addEssenceDropToList(element, event.getEntityLiving(), event.getDrops(), event.getLootingLevel());
@@ -86,11 +84,11 @@ public class ServerEvents {
 	@SubscribeEvent
 	public static void elementifyLivingHurtEvent(LivingHurtEvent event) {
 		DamageSource damageSource = event.getSource();
-		final AttackData data = ElementalCombatAPI.getAttackData(damageSource);
+		final AttackData data = AttackDataAPI.get(damageSource);
 		
 		event.getEntityLiving().getArmorInventoryList().forEach( armorStack -> {
 			if(armorStack.getItem() instanceof MirrorArmor) {
-				DefenseData armorDef = ElementalCombatAPI.getDefenseData(armorStack);
+				DefenseData armorDef = DefenseDataAPI.get(armorStack);
 				HashMap<String, Integer> elemMap = new HashMap<String, Integer>();
 				HashMap<String, Integer> styleMap = new HashMap<String, Integer>();
 				elemMap.put(data.getElement(), ServerConfig.getMaxFactor()/10);
