@@ -68,6 +68,8 @@ minecraft {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${version_forge}"
+	
+    implementation "curse.maven:elementalcombat-${elementalcombat_project_id}:${elementalcombat_file_id}"
 }
 
 jar {
@@ -85,6 +87,9 @@ jar {
 }
 
 repositories {
+    maven {
+        url "https://www.cursemaven.com"
+    }
 }
 
 jar.finalizedBy('reobfJar') 

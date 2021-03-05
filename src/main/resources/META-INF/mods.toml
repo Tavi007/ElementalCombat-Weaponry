@@ -35,6 +35,6 @@ description= "This mod enhances the combat system by adding elemental and style 
 [[dependencies.elementalcombat_weaponry]]
     modId="elementalcombat"
     mandatory=true
-    versionRange="[1.2,)"
+    versionRange="[1.1,)"
     ordering="NONE"
     side="BOTH"
