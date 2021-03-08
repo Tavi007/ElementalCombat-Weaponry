@@ -7,7 +7,7 @@ import java.util.Set;
 import javax.annotation.Nullable;
 
 import Tavi007.ElementalCombat.api.AttackDataAPI;
-import Tavi007.ElementalCombat.capabilities.attack.AttackData;
+import Tavi007.ElementalCombat.api.attack.AttackData;
 import Tavi007.ElementalCombat.config.ServerConfig;
 import Tavi007.ElementalCombat.util.ElementalCombatNBTHelper;
 import Tavi007.ElementalCombat_Weaponry.util.CollectionUtil;

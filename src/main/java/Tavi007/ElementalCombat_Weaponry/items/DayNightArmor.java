@@ -6,7 +6,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import Tavi007.ElementalCombat.api.DefenseDataAPI;
-import Tavi007.ElementalCombat.capabilities.defense.DefenseData;
+import Tavi007.ElementalCombat.api.defense.DefenseData;
 import Tavi007.ElementalCombat.util.ElementalCombatNBTHelper;
 import Tavi007.ElementalCombat_Weaponry.ElementalCombatWeaponry;
 import net.minecraft.client.util.ITooltipFlag;

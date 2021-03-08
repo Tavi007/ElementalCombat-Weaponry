@@ -5,8 +5,8 @@ import java.util.HashMap;
 
 import Tavi007.ElementalCombat.api.AttackDataAPI;
 import Tavi007.ElementalCombat.api.DefenseDataAPI;
-import Tavi007.ElementalCombat.capabilities.attack.AttackData;
-import Tavi007.ElementalCombat.capabilities.defense.DefenseData;
+import Tavi007.ElementalCombat.api.attack.AttackData;
+import Tavi007.ElementalCombat.api.defense.DefenseData;
 import Tavi007.ElementalCombat.config.ServerConfig;
 import Tavi007.ElementalCombat_Weaponry.ElementalCombatWeaponry;
 import Tavi007.ElementalCombat_Weaponry.init.ItemList;

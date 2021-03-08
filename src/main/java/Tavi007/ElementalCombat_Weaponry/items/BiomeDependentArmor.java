@@ -4,10 +4,9 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import Tavi007.ElementalCombat.api.DefaultProperties;
+import Tavi007.ElementalCombat.api.DefaultPropertiesAPI;
 import Tavi007.ElementalCombat.api.DefenseDataAPI;
-import Tavi007.ElementalCombat.capabilities.defense.DefenseData;
-import Tavi007.ElementalCombat.loading.BiomeCombatProperties;
+import Tavi007.ElementalCombat.api.defense.DefenseData;
 import Tavi007.ElementalCombat.util.ElementalCombatNBTHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
@@ -38,9 +37,9 @@ public class BiomeDependentArmor extends  ArmorItem {
 		// for performance
 		if (tickCounter > 10) {
 			Biome biome = world.getBiome(player.getPosition());
-			BiomeCombatProperties defaultProperties = DefaultProperties.get(biome);
+			DefenseData biomeData = DefaultPropertiesAPI.getDefenseData(biome);
 			DefenseData data = DefenseDataAPI.get(stack);
-			data.setElementFactor(defaultProperties.getDefenseElement());
+			data.setElementFactor(biomeData.getElementFactor());
 			tickCounter = 0;
 		}
 	}
@@ -63,10 +62,4 @@ public class BiomeDependentArmor extends  ArmorItem {
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
     	tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Elemental defense depends on current biome." + TextFormatting.RESET));
     }
-
-//    @Nullable
-//    @Override
-//    public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
-//        return ElementalCombat.MOD_ID + ":textures/models/armor/clock_chestplate.png";
-//    }
 }
