@@ -1,5 +1,16 @@
 {
 	"variants": {
-		"": {"model": "elementalcombat:block/essence_block_darkness"}
+		"axis=x": {
+		  "model": "model": "elementalcombat:block/essence_block_darkness_horizontal",
+		  "x": 90,
+		  "y": 90
+		},
+		"axis=y": {
+		  "model": "elementalcombat:block/essence_block_darkness"
+		},
+		"axis=z": {
+		  "model": "elementalcombat:block/essence_block_darkness_horizontal",
+		  "x": 90
+		}
 	}
 }
