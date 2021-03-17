@@ -69,7 +69,15 @@ minecraft {
 dependencies {
     minecraft "net.minecraftforge:forge:${version_forge}"
 	
-    implementation "curse.maven:elementalcombat-${elementalcombat_project_id}:${elementalcombat_file_id}"
+    //implementation "elemental-combat:elementalcombat-forge-${version_elementalcombat}"
+	//implementation fg.deobf("curse.maven:elementalcombat-397825:3166658")
+    //compileOnly fg.deobf("elemental-combat:elementalcombat-forge-${version_elementalcombat}:api")
+    //runtimeOnly fg.deobf("elemental-combat:elementalcombat-forge-${version_elementalcombat}")
+	
+	implementation fg.deobf("com.github.Tavi007:ElementalCombat:${version_elementalcombat}")
+    
+	//compileOnly fg.deobf('com.github.Tavi007:ElementalCombat:${version_elementalcombat}:api')
+    //runtimeOnly fg.deobf("elemental-combat:elementalcombat-forge-${version_elementalcombat}")
 }
 
 jar {
@@ -87,9 +95,26 @@ jar {
 }
 
 repositories {
-    maven {
+
+	maven { 
+		url 'https://jitpack.io' 
+	}
+
+
+//	maven {
+//		setUrl("https://maven.pkg.github.com/Tavi007/Releases/")
+//    }
+//
+//    maven {
+//        name = "CurseForge"
+//        url = "https://minecraft.curseforge.com/api/maven/"
+//    }
+	
+	maven {
+		name = "CurseMaven"
         url "https://www.cursemaven.com"
     }
+	
 }
 
 jar.finalizedBy('reobfJar') 
