@@ -10,12 +10,12 @@
     {
         "x":
         {
-            "item": "elementalcombat:essence_fire"
+            "item": "elementalcombat_weaponry:essence_fire"
         }
     },
     "result":
     {
-        "item": "elementalcombat:essence_block_fire",
+        "item": "elementalcombat_weaponry:essence_block_fire",
         "count": 1
     }
 }

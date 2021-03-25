@@ -2,6 +2,6 @@
     "parent": "minecraft:item/generated",
     "textures": 
 	{
-        "layer0": "elementalcombat:item/wetsuit_chestplate"
+        "layer0": "elementalcombat_weaponry:item/wetsuit_chestplate"
     }
 }

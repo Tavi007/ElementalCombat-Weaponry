@@ -14,7 +14,7 @@
         },
         "y":
         {
-            "item": "elementalcombat:essence_thunder"
+            "item": "elementalcombat_weaponry:essence_thunder"
         },
         "a":
         {
@@ -23,7 +23,7 @@
     },
     "result":
     {
-        "item": "elementalcombat:lightning_dagger",
+        "item": "elementalcombat_weaponry:lightning_dagger",
         "count": 1
     }
 }

@@ -10,12 +10,12 @@
     {
         "x":
         {
-            "item": "elementalcombat:essence_ice"
+            "item": "elementalcombat_weaponry:essence_ice"
         }
     },
     "result":
     {
-        "item": "elementalcombat:essence_block_ice",
+        "item": "elementalcombat_weaponry:essence_block_ice",
         "count": 1
     }
 }

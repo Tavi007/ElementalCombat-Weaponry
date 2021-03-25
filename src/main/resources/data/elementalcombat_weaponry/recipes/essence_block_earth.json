@@ -10,12 +10,12 @@
     {
         "x":
         {
-            "item": "elementalcombat:essence_earth"
+            "item": "elementalcombat_weaponry:essence_earth"
         }
     },
     "result":
     {
-        "item": "elementalcombat:essence_block_earth",
+        "item": "elementalcombat_weaponry:essence_block_earth",
         "count": 1
     }
 }

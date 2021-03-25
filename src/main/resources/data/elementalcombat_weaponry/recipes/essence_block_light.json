@@ -10,12 +10,12 @@
     {
         "x":
         {
-            "item": "elementalcombat:essence_light"
+            "item": "elementalcombat_weaponry:essence_light"
         }
     },
     "result":
     {
-        "item": "elementalcombat:essence_block_light",
+        "item": "elementalcombat_weaponry:essence_block_light",
         "count": 1
     }
 }

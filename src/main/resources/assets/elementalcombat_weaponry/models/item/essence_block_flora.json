@@ -1,5 +1,5 @@
 {
-    "parent": "elementalcombat:block/essence_block_flora",
+    "parent": "elementalcombat_weaponry:block/essence_block_flora",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

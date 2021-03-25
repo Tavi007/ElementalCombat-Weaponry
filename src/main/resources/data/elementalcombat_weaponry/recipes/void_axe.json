@@ -14,12 +14,12 @@
         },
         "y":
         {
-            "item": "elementalcombat:essence_darkness"
+            "item": "elementalcombat_weaponry:essence_darkness"
         }
     },
     "result":
     {
-        "item": "elementalcombat:void_axe",
+        "item": "elementalcombat_weaponry:void_axe",
         "count": 1
     }
 }

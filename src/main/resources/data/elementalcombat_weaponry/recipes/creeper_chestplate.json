@@ -10,7 +10,7 @@
     {
         "x":
         {
-            "item": "elementalcombat:essence_thunder"
+            "item": "elementalcombat_weaponry:essence_thunder"
         },
         "y":
         {
@@ -23,7 +23,7 @@
     },
     "result":
     {
-        "item": "elementalcombat:creeper_chestplate",
+        "item": "elementalcombat_weaponry:creeper_chestplate",
         "count": 1
     }
 }

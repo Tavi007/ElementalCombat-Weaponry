@@ -10,12 +10,12 @@
     {
         "x":
         {
-            "item": "elementalcombat:essence_flora"
+            "item": "elementalcombat_weaponry:essence_flora"
         }
     },
     "result":
     {
-        "item": "elementalcombat:essence_block_flora",
+        "item": "elementalcombat_weaponry:essence_block_flora",
         "count": 1
     }
 }

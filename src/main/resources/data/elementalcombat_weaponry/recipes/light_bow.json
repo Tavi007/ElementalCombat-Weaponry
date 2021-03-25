@@ -14,12 +14,12 @@
         },
         "y":
         {
-            "item": "elementalcombat:essence_light"
+            "item": "elementalcombat_weaponry:essence_light"
         }
     },
     "result":
     {
-        "item": "elementalcombat:light_bow",
+        "item": "elementalcombat_weaponry:light_bow",
         "count": 1
     }
 }

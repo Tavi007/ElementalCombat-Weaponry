@@ -14,7 +14,7 @@
         },
         "y":
         {
-            "item": "elementalcombat:essence_flora"
+            "item": "elementalcombat_weaponry:essence_flora"
         },
         "a":
         {
@@ -23,7 +23,7 @@
     },
     "result":
     {
-        "item": "elementalcombat:thorn_club",
+        "item": "elementalcombat_weaponry:thorn_club",
         "count": 1
     }
 }

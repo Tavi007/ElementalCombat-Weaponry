@@ -1,5 +1,5 @@
 {
-    "parent": "elementalcombat:block/essence_block_ice",
+    "parent": "elementalcombat_weaponry:block/essence_block_ice",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

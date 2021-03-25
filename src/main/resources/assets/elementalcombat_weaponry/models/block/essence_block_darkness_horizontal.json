@@ -1,7 +1,7 @@
 {
     "parent": "minecraft:block/cube_column_horizontal",
 	"textures": {
-		"end": "elementalcombat:block/essence_block_darkness",
-		"side": "elementalcombat:block/essence_block_darkness"
+		"end": "elementalcombat_weaponry:block/essence_block_darkness",
+		"side": "elementalcombat_weaponry:block/essence_block_darkness"
     }
 }

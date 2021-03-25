@@ -10,12 +10,12 @@
     {
         "x":
         {
-            "item": "elementalcombat:essence_water"
+            "item": "elementalcombat_weaponry:essence_water"
         }
     },
     "result":
     {
-        "item": "elementalcombat:essence_block_water",
+        "item": "elementalcombat_weaponry:essence_block_water",
         "count": 1
     }
 }

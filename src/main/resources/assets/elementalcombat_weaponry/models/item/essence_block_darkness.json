@@ -1,5 +1,5 @@
 {
-    "parent": "elementalcombat:block/essence_block_darkness",
+    "parent": "elementalcombat_weaponry:block/essence_block_darkness",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

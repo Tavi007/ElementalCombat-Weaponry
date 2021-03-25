@@ -1,5 +1,5 @@
 {
-    "parent": "elementalcombat:block/essence_block_fire",
+    "parent": "elementalcombat_weaponry:block/essence_block_fire",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],
