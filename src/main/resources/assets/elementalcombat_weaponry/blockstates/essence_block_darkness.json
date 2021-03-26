@@ -1,16 +1,5 @@
 {
 	"variants": {
-		"axis=x": {
-		  "model": "elementalcombat_weaponry:block/essence_block_darkness_horizontal",
-		  "x": 90,
-		  "y": 90
-		},
-		"axis=y": {
-		  "model": "elementalcombat_weaponry:block/essence_block_darkness"
-		},
-		"axis=z": {
-		  "model": "elementalcombat_weaponry:block/essence_block_darkness_horizontal",
-		  "x": 90
-		}
+		"": {"model": "elementalcombat_weaponry:block/essence_block_darkness"}
 	}
 }
