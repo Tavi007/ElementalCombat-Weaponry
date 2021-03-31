@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import Tavi007.ElementalCombat.api.DefaultPropertiesAPI;
+import Tavi007.ElementalCombat.api.BasePropertiesAPI;
 import Tavi007.ElementalCombat.api.DefenseDataAPI;
 import Tavi007.ElementalCombat.api.defense.DefenseData;
 import Tavi007.ElementalCombat.util.ElementalCombatNBTHelper;
@@ -37,7 +37,7 @@ public class BiomeDependentArmor extends  ArmorItem {
 		// for performance
 		if (tickCounter > 10) {
 			Biome biome = world.getBiome(player.getPosition());
-			DefenseData biomeData = DefaultPropertiesAPI.getDefenseData(biome);
+			DefenseData biomeData = BasePropertiesAPI.getDefenseData(biome);
 			DefenseData data = DefenseDataAPI.get(stack);
 			data.setElementFactor(biomeData.getElementFactor());
 			tickCounter = 0;

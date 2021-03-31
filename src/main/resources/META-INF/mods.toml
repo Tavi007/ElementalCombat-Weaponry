@@ -28,9 +28,9 @@ description= "This mod showcases the fun stuff, one can do with the Elemental Co
     versionRange="[1.16.5]"
     ordering="NONE"
     side="BOTH"
-[[dependencies.elementalcombat_weaponry]]
-    modId="elementalcombat"
-    mandatory=true
-    versionRange="[1.1,)"
-    ordering="NONE"
-    side="BOTH"
+#[[dependencies.elementalcombat_weaponry]]
+#    modId="elementalcombat"
+#    mandatory=true
+#    versionRange="[1.1.1,)"
+#    ordering="NONE"
+#    side="BOTH"
