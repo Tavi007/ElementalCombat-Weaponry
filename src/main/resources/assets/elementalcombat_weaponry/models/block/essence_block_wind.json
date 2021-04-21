@@ -1,8 +1,8 @@
 {
     "parent": "block/cube_all",
 	"textures": {
-        "particle": "elementalcombat:block/essence_block_wind",
-        "all": "elementalcombat:block/essence_block_wind"
+        "particle": "elementalcombat_weaponry:block/essence_block_wind",
+        "all": "elementalcombat_weaponry:block/essence_block_wind"
     },
     "elements": [
         {

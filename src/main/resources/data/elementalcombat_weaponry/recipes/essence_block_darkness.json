@@ -10,12 +10,12 @@
     {
         "x":
         {
-            "item": "elementalcombat:essence_darkness"
+            "item": "elementalcombat_weaponry:essence_darkness"
         }
     },
     "result":
     {
-        "item": "elementalcombat:essence_block_darkness",
+        "item": "elementalcombat_weaponry:essence_block_darkness",
         "count": 1
     }
 }

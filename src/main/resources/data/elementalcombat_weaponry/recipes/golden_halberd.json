@@ -2,7 +2,7 @@
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
         {
-            "item": "elementalcombat:golden_spear"
+            "item": "elementalcombat_weaponry:golden_spear"
         },
         {
             "item": "minecraft:golden_axe"
@@ -10,7 +10,7 @@
     ],
     "result":
     {
-        "item": "elementalcombat:golden_halberd",
+        "item": "elementalcombat_weaponry:golden_halberd",
         "count": 1
     }
 }

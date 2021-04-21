@@ -70,11 +70,16 @@ dependencies {
     minecraft "net.minecraftforge:forge:${version_forge}"
 	
     //implementation "elemental-combat:elementalcombat-forge-${version_elementalcombat}"
-	//implementation fg.deobf("curse.maven:elementalcombat-397825:3166658")
+	
+	
+	compileOnly fg.deobf("curse.maven:elementalcombat-397825:3244547")
+	runtimeOnly fg.deobf("curse.maven:elementalcombat-397825:3244544")
+	
+	
     //compileOnly fg.deobf("elemental-combat:elementalcombat-forge-${version_elementalcombat}:api")
     //runtimeOnly fg.deobf("elemental-combat:elementalcombat-forge-${version_elementalcombat}")
 	
-	implementation fg.deobf("com.github.Tavi007:ElementalCombat:${version_elementalcombat}")
+	//implementation fg.deobf("com.github.Tavi007:ElementalCombat:${version_elementalcombat}")
     
 	//compileOnly fg.deobf('com.github.Tavi007:ElementalCombat:${version_elementalcombat}:api')
     //runtimeOnly fg.deobf("elemental-combat:elementalcombat-forge-${version_elementalcombat}")
@@ -96,19 +101,19 @@ jar {
 
 repositories {
 
-	maven { 
-		url 'https://jitpack.io' 
-	}
+//	maven { 
+//		url 'https://jitpack.io' 
+//	}
 
 
 //	maven {
 //		setUrl("https://maven.pkg.github.com/Tavi007/Releases/")
 //    }
-//
-//    maven {
-//        name = "CurseForge"
-//        url = "https://minecraft.curseforge.com/api/maven/"
-//    }
+
+    maven {
+        name = "CurseForge"
+        url = "https://minecraft.curseforge.com/api/maven/"
+    }
 	
 	maven {
 		name = "CurseMaven"

@@ -14,12 +14,12 @@
         },
         "y":
         {
-            "item": "elementalcombat:essence_water"
+            "item": "elementalcombat_weaponry:essence_water"
         }
     },
     "result":
     {
-        "item": "elementalcombat:water_staff",
+        "item": "elementalcombat_weaponry:water_staff",
         "count": 1
     }
 }

@@ -2,6 +2,6 @@
     "parent": "minecraft:item/generated",
     "textures": 
 	{
-        "layer0": "elementalcombat:item/daynight_chestplate_night"
+        "layer0": "elementalcombat_weaponry:item/daynight_chestplate_night"
     }
 }

@@ -2,6 +2,6 @@
     "parent": "minecraft:item/handheld",
     "textures": 
 	{
-        "layer0": "elementalcombat:item/thorn_club"
+        "layer0": "elementalcombat_weaponry:item/thorn_club"
     }
 }

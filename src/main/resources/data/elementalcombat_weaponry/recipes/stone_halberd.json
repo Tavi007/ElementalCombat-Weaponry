@@ -2,7 +2,7 @@
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
         {
-            "item": "elementalcombat:stone_spear"
+            "item": "elementalcombat_weaponry:stone_spear"
         },
         {
             "item": "minecraft:stone_axe"
@@ -10,7 +10,7 @@
     ],
     "result":
     {
-        "item": "elementalcombat:stone_halberd",
+        "item": "elementalcombat_weaponry:stone_halberd",
         "count": 1
     }
 }

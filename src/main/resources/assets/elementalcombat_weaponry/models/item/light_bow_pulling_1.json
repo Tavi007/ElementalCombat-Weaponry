@@ -1,6 +1,6 @@
 {
-    "parent": "elementalcombat:item/light_bow",
+    "parent": "elementalcombat_weaponry:item/light_bow",
     "textures": {
-        "layer0": "elementalcombat:item/light_bow_pulling_1"
+        "layer0": "elementalcombat_weaponry:item/light_bow_pulling_1"
     }
 }

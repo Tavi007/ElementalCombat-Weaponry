@@ -2,6 +2,6 @@
     "parent": "minecraft:item/generated",
     "textures": 
 	{
-        "layer0": "elementalcombat:item/essence_fire"
+        "layer0": "elementalcombat_weaponry:item/essence_fire"
     }
 }

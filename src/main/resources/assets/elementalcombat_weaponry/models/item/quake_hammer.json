@@ -2,6 +2,6 @@
     "parent": "minecraft:item/handheld",
     "textures": 
 	{
-        "layer0": "elementalcombat:item/quake_hammer"
+        "layer0": "elementalcombat_weaponry:item/quake_hammer"
     }
 }

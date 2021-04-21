@@ -14,12 +14,12 @@
         },
         "y":
         {
-            "item": "elementalcombat:essence_block_earth"
+            "item": "elementalcombat_weaponry:essence_block_earth"
         }
     },
     "result":
     {
-        "item": "elementalcombat:quake_hammer",
+        "item": "elementalcombat_weaponry:quake_hammer",
         "count": 1
     }
 }

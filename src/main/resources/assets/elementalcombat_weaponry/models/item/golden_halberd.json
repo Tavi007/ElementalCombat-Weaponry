@@ -2,6 +2,6 @@
     "parent": "minecraft:item/handheld",
     "textures": 
 	{
-        "layer0": "elementalcombat:item/golden_halberd"
+        "layer0": "elementalcombat_weaponry:item/golden_halberd"
     }
 }

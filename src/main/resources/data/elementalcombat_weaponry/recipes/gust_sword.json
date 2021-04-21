@@ -14,12 +14,12 @@
         },
         "x":
         {
-            "item": "elementalcombat:essence_wind"
+            "item": "elementalcombat_weaponry:essence_wind"
         }
     },
     "result":
     {
-        "item": "elementalcombat:gust_sword",
+        "item": "elementalcombat_weaponry:gust_sword",
         "count": 1
     }
 }

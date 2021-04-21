@@ -1,5 +1,5 @@
 {
 	"variants": {
-		"": {"model": "elementalcombat:block/essence_block_thunder"}
+		"": {"model": "elementalcombat_weaponry:block/essence_block_thunder"}
 	}
 }

@@ -2,6 +2,6 @@
     "parent": "minecraft:item/handheld",
     "textures": 
 	{
-        "layer0": "elementalcombat:item/water_staff"
+        "layer0": "elementalcombat_weaponry:item/water_staff"
     }
 }

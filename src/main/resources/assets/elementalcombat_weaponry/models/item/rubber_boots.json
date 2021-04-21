@@ -2,6 +2,6 @@
     "parent": "minecraft:item/generated",
     "textures": 
 	{
-        "layer0": "elementalcombat:item/rubber_boots"
+        "layer0": "elementalcombat_weaponry:item/rubber_boots"
     }
 }

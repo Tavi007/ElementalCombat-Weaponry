@@ -10,12 +10,12 @@
     {
         "x":
         {
-            "item": "elementalcombat:essence_thunder"
+            "item": "elementalcombat_weaponry:essence_thunder"
         }
     },
     "result":
     {
-        "item": "elementalcombat:essence_block_thunder",
+        "item": "elementalcombat_weaponry:essence_block_thunder",
         "count": 1
     }
 }

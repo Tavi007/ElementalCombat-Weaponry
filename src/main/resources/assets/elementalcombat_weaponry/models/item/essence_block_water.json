@@ -1,5 +1,5 @@
 {
-    "parent": "elementalcombat:block/essence_block_water",
+    "parent": "elementalcombat_weaponry:block/essence_block_water",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],
