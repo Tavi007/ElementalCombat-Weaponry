@@ -71,9 +71,15 @@ dependencies {
 	
     //implementation "elemental-combat:elementalcombat-forge-${version_elementalcombat}"
 	
+	//compileOnly fg.deobf(files('C:/Minecraft Modding/ElementalCombat/build/libs/elementalcombat-forge-1.16.5-1.1.1-api.jar'))
+	//runtimeOnly fg.deobf(files('C:/Minecraft Modding/ElementalCombat/build/libs/elementalcombat-forge-1.16.5-1.1.1.jar'))
+	implementation fg.deobf(files('C:/Minecraft Modding/ElementalCombat/build/libs/elementalcombat-forge-1.16.5-1.1.1-api.jar'))
 	
-	compileOnly fg.deobf("curse.maven:elementalcombat-397825:3244547")
-	runtimeOnly fg.deobf("curse.maven:elementalcombat-397825:3244544")
+	//compileOnly fg.deobf("curse.maven:elementalcombat-397825:3244547")
+	//runtimeOnly fg.deobf("curse.maven:elementalcombat-397825:3244544")
+	
+	
+	
 	
 	
     //compileOnly fg.deobf("elemental-combat:elementalcombat-forge-${version_elementalcombat}:api")

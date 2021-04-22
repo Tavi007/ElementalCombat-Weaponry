@@ -1,5 +1,19 @@
 {
-	"variants": {
-		"": {"model": "elementalcombat_weaponry:block/essence_block_fire"}
-	}
+  "variants": {
+    "facing=east": {
+      "model": "elementalcombat_weaponry:block/essence_block_fire",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "elementalcombat_weaponry:block/essence_block_fire",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "elementalcombat_weaponry:block/essence_block_fire"
+    },
+    "facing=west": {
+      "model": "elementalcombat_weaponry:block/essence_block_fire",
+      "y": 90
+    }
+  }
 }
