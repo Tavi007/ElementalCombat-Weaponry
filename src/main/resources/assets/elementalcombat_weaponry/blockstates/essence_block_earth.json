@@ -1,18 +1,18 @@
 {
   "variants": {
     "facing=east": {
-      "model": "minecraft:block/black_glazed_terracotta",
+      "model": "elementalcombat_weaponry:block/essence_block_earth",
       "y": 270
     },
     "facing=north": {
-      "model": "minecraft:block/black_glazed_terracotta",
+      "model": "elementalcombat_weaponry:block/essence_block_earth",
       "y": 180
     },
     "facing=south": {
-      "model": "minecraft:block/black_glazed_terracotta"
+      "model": "elementalcombat_weaponry:block/essence_block_earth"
     },
     "facing=west": {
-      "model": "minecraft:block/black_glazed_terracotta",
+      "model": "elementalcombat_weaponry:block/essence_block_earth",
       "y": 90
     }
   }
