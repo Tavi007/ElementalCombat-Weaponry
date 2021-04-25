@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_glazed_terracotta",
   "textures": {
-    "pattern": "minecraft:block/essence_block_darkness"
+    "pattern": "elementalcombat_weaponry:block/essence_block_darkness"
   }
 }
