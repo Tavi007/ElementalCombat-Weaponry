@@ -2,6 +2,7 @@ package Tavi007.ElementalCombat_Weaponry.init;
 
 import Tavi007.ElementalCombat_Weaponry.ElementalCombatWeaponry;
 import net.minecraft.block.Block;
+import net.minecraft.block.GlazedTerracottaBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -16,15 +17,15 @@ public class BlockList {
 
 	private static Properties standardItemProperties = new Item.Properties().group(ElementalCombatWeaponry.ELEMENTAL_COMBAT_GROUP).maxStackSize(64);
 	
-	public static final RegistryObject<Block> ESSENCE_BLOCK_FIRE 		= BLOCKS.register("essence_block_fire", () -> new Block(Block.Properties.create(Material.IRON)));
-	public static final RegistryObject<Block> ESSENCE_BLOCK_ICE 		= BLOCKS.register("essence_block_ice", () -> new Block(Block.Properties.create(Material.IRON)));
-	public static final RegistryObject<Block> ESSENCE_BLOCK_WATER 		= BLOCKS.register("essence_block_water", () -> new Block(Block.Properties.create(Material.IRON)));
-	public static final RegistryObject<Block> ESSENCE_BLOCK_THUNDER 	= BLOCKS.register("essence_block_thunder", () -> new Block(Block.Properties.create(Material.IRON)));
-	public static final RegistryObject<Block> ESSENCE_BLOCK_DARKNESS 	= BLOCKS.register("essence_block_darkness", () -> new Block(Block.Properties.create(Material.IRON)));
-	public static final RegistryObject<Block> ESSENCE_BLOCK_LIGHT 		= BLOCKS.register("essence_block_light", () -> new Block(Block.Properties.create(Material.IRON)));
-	public static final RegistryObject<Block> ESSENCE_BLOCK_EARTH 		= BLOCKS.register("essence_block_earth", () -> new Block(Block.Properties.create(Material.IRON)));
-	public static final RegistryObject<Block> ESSENCE_BLOCK_WIND 		= BLOCKS.register("essence_block_wind", () -> new Block(Block.Properties.create(Material.IRON)));
-	public static final RegistryObject<Block> ESSENCE_BLOCK_FLORA 		= BLOCKS.register("essence_block_flora", () -> new Block(Block.Properties.create(Material.IRON)));
+	public static final RegistryObject<Block> ESSENCE_BLOCK_FIRE 		= BLOCKS.register("essence_block_fire", () -> new GlazedTerracottaBlock(Block.Properties.create(Material.IRON)));
+	public static final RegistryObject<Block> ESSENCE_BLOCK_ICE 		= BLOCKS.register("essence_block_ice", () -> new GlazedTerracottaBlock(Block.Properties.create(Material.IRON)));
+	public static final RegistryObject<Block> ESSENCE_BLOCK_WATER 		= BLOCKS.register("essence_block_water", () -> new GlazedTerracottaBlock(Block.Properties.create(Material.IRON)));
+	public static final RegistryObject<Block> ESSENCE_BLOCK_THUNDER 	= BLOCKS.register("essence_block_thunder", () -> new GlazedTerracottaBlock(Block.Properties.create(Material.IRON)));
+	public static final RegistryObject<Block> ESSENCE_BLOCK_DARKNESS 	= BLOCKS.register("essence_block_darkness", () -> new GlazedTerracottaBlock(Block.Properties.create(Material.IRON)));
+	public static final RegistryObject<Block> ESSENCE_BLOCK_LIGHT 		= BLOCKS.register("essence_block_light", () -> new GlazedTerracottaBlock(Block.Properties.create(Material.IRON)));
+	public static final RegistryObject<Block> ESSENCE_BLOCK_EARTH 		= BLOCKS.register("essence_block_earth", () -> new GlazedTerracottaBlock(Block.Properties.create(Material.IRON)));
+	public static final RegistryObject<Block> ESSENCE_BLOCK_WIND 		= BLOCKS.register("essence_block_wind", () -> new GlazedTerracottaBlock(Block.Properties.create(Material.IRON)));
+	public static final RegistryObject<Block> ESSENCE_BLOCK_FLORA 		= BLOCKS.register("essence_block_flora", () -> new GlazedTerracottaBlock(Block.Properties.create(Material.IRON)));
 	
 	public static final RegistryObject<Item>  ESSENCE_BLOCK_FIRE_ITEM  		= ITEMS.register("essence_block_fire", () -> new BlockItem(ESSENCE_BLOCK_FIRE.get(), standardItemProperties));
 	public static final RegistryObject<Item>  ESSENCE_BLOCK_ICE_ITEM  		= ITEMS.register("essence_block_ice", () -> new BlockItem(ESSENCE_BLOCK_ICE.get(), standardItemProperties));
