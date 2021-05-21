@@ -69,26 +69,12 @@ minecraft {
 dependencies {
     minecraft "net.minecraftforge:forge:${version_forge}"
 	
-    //implementation "elemental-combat:elementalcombat-forge-${version_elementalcombat}"
+	implementation fg.deobf("io.tavi007.elementalCombat:elementalcombat-forge-1.16.5-1.1.1:1.16.5-1.1.1") //this will work
 	
-	//compileOnly fg.deobf(files('C:/Minecraft Modding/ElementalCombat/build/libs/elementalcombat-forge-1.16.5-1.1.1-api.jar'))
-	//runtimeOnly fg.deobf(files('C:/Minecraft Modding/ElementalCombat/build/libs/elementalcombat-forge-1.16.5-1.1.1.jar'))
-	implementation fg.deobf(files('C:/Minecraft Modding/ElementalCombat/build/libs/elementalcombat-forge-1.16.5-1.1.1-api.jar'))
+	//compileOnly fg.deobf("curse.maven:elementalcombat-397825:3250931") //this will work
+	//runtimeOnly fg.deobf("curse.maven:elementalcombat-397825:3250931")
 	
-	//compileOnly fg.deobf("curse.maven:elementalcombat-397825:3244547")
-	//runtimeOnly fg.deobf("curse.maven:elementalcombat-397825:3244544")
-	
-	
-	
-	
-	
-    //compileOnly fg.deobf("elemental-combat:elementalcombat-forge-${version_elementalcombat}:api")
-    //runtimeOnly fg.deobf("elemental-combat:elementalcombat-forge-${version_elementalcombat}")
-	
-	//implementation fg.deobf("com.github.Tavi007:ElementalCombat:${version_elementalcombat}")
-    
-	//compileOnly fg.deobf('com.github.Tavi007:ElementalCombat:${version_elementalcombat}:api')
-    //runtimeOnly fg.deobf("elemental-combat:elementalcombat-forge-${version_elementalcombat}")
+
 }
 
 jar {
@@ -106,25 +92,15 @@ jar {
 }
 
 repositories {
-
-//	maven { 
-//		url 'https://jitpack.io' 
-//	}
-
-
-//	maven {
-//		setUrl("https://maven.pkg.github.com/Tavi007/Releases/")
-//    }
-
-    maven {
-        name = "CurseForge"
-        url = "https://minecraft.curseforge.com/api/maven/"
-    }
 	
 	maven {
 		name = "CurseMaven"
         url "https://www.cursemaven.com"
     }
+	
+	flatDir {
+        dirs 'libs' 
+	}
 	
 }
 
@@ -134,11 +110,6 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             artifact jar
-        }
-    }
-    repositories {
-        maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
         }
     }
 }
