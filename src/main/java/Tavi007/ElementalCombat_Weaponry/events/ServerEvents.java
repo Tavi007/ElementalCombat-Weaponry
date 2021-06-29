@@ -87,16 +87,15 @@ public class ServerEvents {
 	public static void elementifyLivingHurtEvent(LivingHurtEvent event) {
 		DamageSource damageSource = event.getSource();
 		final AttackData data = AttackDataAPI.get(damageSource);
-		
+		HashMap<String, Integer> elemMap = new HashMap<String, Integer>();
+		HashMap<String, Integer> styleMap = new HashMap<String, Integer>();
+		elemMap.put(data.getElement(), ServerConfig.getMaxFactor()/10);
+		styleMap.put(data.getStyle(), ServerConfig.getMaxFactor()/10);
+		DefenseLayer layer = new DefenseLayer(styleMap, elemMap);
+
 		event.getEntityLiving().getArmorInventoryList().forEach( armorStack -> {
 			if(armorStack.getItem() instanceof MirrorArmor) {
-				DefenseData armorDef = DefenseDataAPI.get(armorStack);
-				HashMap<String, Integer> elemMap = new HashMap<String, Integer>();
-				HashMap<String, Integer> styleMap = new HashMap<String, Integer>();
-				elemMap.put(data.getElement(), ServerConfig.getMaxFactor()/10);
-				styleMap.put(data.getStyle(), ServerConfig.getMaxFactor()/10);
-				DefenseLayer layer = new DefenseLayer(styleMap, elemMap);
-				armorDef.putLayer(layer, new ResourceLocation(ElementalCombatWeaponry.MOD_ID, "mirror"));
+				DefenseDataAPI.putLayer(armorStack, layer, ElementalCombatWeaponry.ARMOR);
 			}
 		});
 	};

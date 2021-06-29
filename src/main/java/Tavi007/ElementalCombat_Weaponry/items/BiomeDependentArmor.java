@@ -41,9 +41,7 @@ public class BiomeDependentArmor extends  ArmorItem {
 		if (tickCounter > 10) {
 			Biome biome = world.getBiome(player.getPosition());
 			DefenseLayer layer = BasePropertiesAPI.getDefenseLayer(biome);
-			DefenseData data = DefenseDataAPI.get(stack);
-			
-			data.putLayer(layer, new ResourceLocation(ElementalCombatWeaponry.MOD_ID, "biome"));
+			DefenseDataAPI.putLayer(stack, layer, ElementalCombatWeaponry.ARMOR);
 			tickCounter = 0;
 		}
 	}

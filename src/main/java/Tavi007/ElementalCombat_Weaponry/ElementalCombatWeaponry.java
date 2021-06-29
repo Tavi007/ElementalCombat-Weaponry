@@ -7,6 +7,7 @@ import Tavi007.ElementalCombat_Weaponry.init.BlockList;
 import Tavi007.ElementalCombat_Weaponry.init.ItemList;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -17,9 +18,12 @@ public class ElementalCombatWeaponry
 {
 	public static ElementalCombatWeaponry instance;
 	public static final String MOD_ID = "elementalcombat_weaponry";
+	public static final ResourceLocation ARMOR = new ResourceLocation(MOD_ID, "armor");
 	public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
     public static IEventBus MOD_EVENT_BUS;
 	public static final ItemGroup ELEMENTAL_COMBAT_GROUP = new ElementalCombatWeaponry.ElementalCombatItemGroup(MOD_ID);
+	
+	
     
 	public ElementalCombatWeaponry()
 	{

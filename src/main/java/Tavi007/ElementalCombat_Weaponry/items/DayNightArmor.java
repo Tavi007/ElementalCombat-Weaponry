@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 
 import Tavi007.ElementalCombat.api.DefenseDataAPI;
 import Tavi007.ElementalCombat.api.defense.DefenseData;
+import Tavi007.ElementalCombat.api.defense.DefenseLayer;
 import Tavi007.ElementalCombat.util.ElementalCombatNBTHelper;
 import Tavi007.ElementalCombat_Weaponry.ElementalCombatWeaponry;
 import net.minecraft.client.util.ITooltipFlag;
@@ -17,6 +18,7 @@ import net.minecraft.item.ArmorItem;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
@@ -35,8 +37,7 @@ public class DayNightArmor extends  ArmorItem {
 		float time = (float) world.getDayTime();
 		// time: 18000 = midnight; 6000 = noon; 12000 and 0 (or 24000) halfway points
 		int lightFactor = Math.round((float) Math.sin(time/12000 * Math.PI) * 35) ;
-		DefenseData data = DefenseDataAPI.get(stack);
-		HashMap<String,Integer> elemFactors = data.getElementFactor();
+		HashMap<String,Integer> elemFactors = new HashMap<String, Integer>();
 		if(lightFactor>=0) {
 			elemFactors.put("light", lightFactor);
 			elemFactors.put("darkness", -lightFactor/2);
@@ -45,6 +46,9 @@ public class DayNightArmor extends  ArmorItem {
 			elemFactors.put("light", lightFactor/2);
 			elemFactors.put("darkness", -lightFactor);
 		}
+		DefenseLayer layer = new DefenseLayer();
+		layer.addElement(elemFactors);
+		DefenseDataAPI.putLayer(stack, layer, ElementalCombatWeaponry.ARMOR);
 	}
 
     @Override
