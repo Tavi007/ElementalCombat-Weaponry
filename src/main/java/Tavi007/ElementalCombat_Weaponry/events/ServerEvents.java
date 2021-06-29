@@ -7,6 +7,7 @@ import Tavi007.ElementalCombat.api.AttackDataAPI;
 import Tavi007.ElementalCombat.api.DefenseDataAPI;
 import Tavi007.ElementalCombat.api.attack.AttackData;
 import Tavi007.ElementalCombat.api.defense.DefenseData;
+import Tavi007.ElementalCombat.api.defense.DefenseLayer;
 import Tavi007.ElementalCombat.config.ServerConfig;
 import Tavi007.ElementalCombat_Weaponry.ElementalCombatWeaponry;
 import Tavi007.ElementalCombat_Weaponry.init.ItemList;
@@ -16,6 +17,7 @@ import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -93,9 +95,9 @@ public class ServerEvents {
 				HashMap<String, Integer> styleMap = new HashMap<String, Integer>();
 				elemMap.put(data.getElement(), ServerConfig.getMaxFactor()/10);
 				styleMap.put(data.getStyle(), ServerConfig.getMaxFactor()/10);
-				armorDef.setElementFactor(elemMap);
-				armorDef.setStyleFactor(styleMap);
+				DefenseLayer layer = new DefenseLayer(styleMap, elemMap);
+				armorDef.putLayer(layer, new ResourceLocation(ElementalCombatWeaponry.MOD_ID, "mirror"));
 			}
 		});
-	}
+	};
 }
