@@ -25,41 +25,36 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class BiomeDependentArmor extends  ArmorItem {
-	
-	int tickCounter = 0;
-	
+
 	public BiomeDependentArmor(IArmorMaterial materialIn, EquipmentSlotType slot, Properties p_i48534_3_) {
 		super(materialIn, slot, p_i48534_3_);
 	}
-	
+
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-		tickCounter++;
-		// for performance
-		if (tickCounter > 10) {
+		if(world.getDayTime() % 20 == 0) {
 			Biome biome = world.getBiome(player.getPosition());
 			DefenseLayer layer = BasePropertiesAPI.getDefenseLayer(biome);
 			DefenseDataAPI.putLayer(stack, layer, ElementalCombatWeaponry.ARMOR);
-			tickCounter = 0;
 		}
 	}
 
-    @Override
-    public CompoundNBT getShareTag(ItemStack stack) {
-        CompoundNBT nbt = stack.getTag();
-        ElementalCombatNBTHelper.writeDefenseDataToNBT(nbt, DefenseDataAPI.get(stack));
-        return nbt;
-    }
+	@Override
+	public CompoundNBT getShareTag(ItemStack stack) {
+		CompoundNBT nbt = stack.getTag();
+		ElementalCombatNBTHelper.writeDefenseDataToNBT(nbt, DefenseDataAPI.get(stack));
+		return nbt;
+	}
 
-    @Override
+	@Override
 	public void readShareTag(ItemStack stack, @Nullable CompoundNBT nbt) {
-        stack.setTag(nbt);
-        DefenseDataAPI.get(stack).set(ElementalCombatNBTHelper.readDefenseDataFromNBT(nbt));
-    }
-    
-    @OnlyIn(Dist.CLIENT)
-    @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-    	tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Elemental defense depends on current biome." + TextFormatting.RESET));
-    }
+		stack.setTag(nbt);
+		DefenseDataAPI.get(stack).set(ElementalCombatNBTHelper.readDefenseDataFromNBT(nbt));
+	}
+
+	@OnlyIn(Dist.CLIENT)
+	@Override
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+		tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Elemental defense depends on current biome." + TextFormatting.RESET));
+	}
 }
