@@ -35,7 +35,7 @@ public class BiomeDependentArmor extends  ArmorItem {
 		if(world.getDayTime() % 20 == 0) {
 			Biome biome = world.getBiome(player.getPosition());
 			DefenseLayer layer = BasePropertiesAPI.getDefenseLayer(biome);
-			DefenseDataAPI.putLayer(stack, layer, ElementalCombatWeaponry.ARMOR);
+			DefenseDataAPI.putLayer(stack, layer, ElementalCombatWeaponry.ARMOR_RESOURCE_LOCATION);
 		}
 	}
 

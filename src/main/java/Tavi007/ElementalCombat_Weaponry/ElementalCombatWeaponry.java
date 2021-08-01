@@ -18,7 +18,7 @@ public class ElementalCombatWeaponry
 {
 	public static ElementalCombatWeaponry instance;
 	public static final String MOD_ID = "elementalcombat_weaponry";
-	public static final ResourceLocation ARMOR = new ResourceLocation(MOD_ID, "armor");
+	public static final ResourceLocation ARMOR_RESOURCE_LOCATION = new ResourceLocation(MOD_ID, "armor");
 	public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
     public static IEventBus MOD_EVENT_BUS;
 	public static final ItemGroup ELEMENTAL_COMBAT_GROUP = new ElementalCombatWeaponry.ElementalCombatItemGroup(MOD_ID);

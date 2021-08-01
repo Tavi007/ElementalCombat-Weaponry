@@ -46,7 +46,7 @@ public class DayNightArmor extends  ArmorItem {
 		}
 		DefenseLayer layer = new DefenseLayer();
 		layer.addElement(elemFactors);
-		DefenseDataAPI.putLayer(stack, layer, ElementalCombatWeaponry.ARMOR);
+		DefenseDataAPI.putLayer(stack, layer, ElementalCombatWeaponry.ARMOR_RESOURCE_LOCATION);
 	}
 
     @Override

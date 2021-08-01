@@ -1,7 +1,9 @@
 package Tavi007.ElementalCombat_Weaponry.events;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 
 import Tavi007.ElementalCombat.api.AttackDataAPI;
 import Tavi007.ElementalCombat.api.DefenseDataAPI;
@@ -83,19 +85,27 @@ public class ServerEvents {
 
 	// for the Mirror Armor
 	@SubscribeEvent
-	public static void elementifyLivingHurtEvent(LivingHurtEvent event) {
-		DamageSource damageSource = event.getSource();
-		final AttackData data = AttackDataAPI.get(damageSource);
-		HashMap<String, Integer> elemMap = new HashMap<String, Integer>();
-		HashMap<String, Integer> styleMap = new HashMap<String, Integer>();
-		elemMap.put(data.getElement(), ServerConfig.getMaxFactor()/10);
-		styleMap.put(data.getStyle(), ServerConfig.getMaxFactor()/10);
-		DefenseLayer layer = new DefenseLayer(styleMap, elemMap);
-
+	public static void livingHurtEvent(LivingHurtEvent event) {
+		List<ItemStack> mirrorStacks = new ArrayList<ItemStack>();
 		event.getEntityLiving().getArmorInventoryList().forEach( armorStack -> {
 			if(armorStack.getItem() instanceof MirrorArmor) {
-				DefenseDataAPI.putLayer(armorStack, layer, ElementalCombatWeaponry.ARMOR);
+				mirrorStacks.add(armorStack);
 			}
 		});
+
+		if(!mirrorStacks.isEmpty()) {
+			DamageSource damageSource = event.getSource();
+			final AttackData data = AttackDataAPI.get(damageSource);
+			HashMap<String, Integer> elemMap = new HashMap<String, Integer>();
+			HashMap<String, Integer> styleMap = new HashMap<String, Integer>();
+			elemMap.put(data.getElement(), ServerConfig.getMaxFactor()/10);
+			styleMap.put(data.getStyle(), ServerConfig.getMaxFactor()/10);
+			DefenseLayer layer = new DefenseLayer(styleMap, elemMap);
+
+			mirrorStacks.forEach(stack -> {
+				DefenseDataAPI.putLayer(stack, layer, ElementalCombatWeaponry.ARMOR_RESOURCE_LOCATION);
+			});
+		}
+
 	};
 }
