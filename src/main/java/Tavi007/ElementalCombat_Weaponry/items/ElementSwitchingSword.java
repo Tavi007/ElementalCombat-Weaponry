@@ -23,8 +23,6 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class ElementSwitchingSword extends SwordItem {
 
@@ -39,7 +37,7 @@ public class ElementSwitchingSword extends SwordItem {
 			this.elements = elements;
 		}
 	}
-
+	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		ItemStack stack = playerIn.getHeldItem(handIn);
@@ -54,6 +52,11 @@ public class ElementSwitchingSword extends SwordItem {
 			return ActionResult.resultFail(playerIn.getHeldItem(handIn));
 		}
 	}
+    
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    	tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Right-click to switch element" + TextFormatting.RESET));
+    }
 	
 
     @Override
@@ -63,15 +66,9 @@ public class ElementSwitchingSword extends SwordItem {
         ElementalCombatNBTHelper.writeAttackDataToNBT(nbt, AttackDataAPI.get(stack));
         return nbt;
     }
-    
-    @OnlyIn(Dist.CLIENT)
-    @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-    	tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Right-click to switch element" + TextFormatting.RESET));
-    }
 
     @Override
-	public void readShareTag(ItemStack stack, @Nullable CompoundNBT nbt) {
+	  public void readShareTag(ItemStack stack, @Nullable CompoundNBT nbt) {
         stack.setTag(nbt);
         AttackDataAPI.get(stack).set(ElementalCombatNBTHelper.readAttackDataFromNBT(nbt));
     }

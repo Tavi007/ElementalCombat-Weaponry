@@ -23,8 +23,6 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class StyleSwitchingSword extends SwordItem {
 
@@ -49,6 +47,11 @@ public class StyleSwitchingSword extends SwordItem {
 			return ActionResult.resultFail(playerIn.getHeldItem(handIn));
 		}
 	}
+    
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    	tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Right-click to switch style" + TextFormatting.RESET));
+    }
 	
 
     @Override
@@ -62,11 +65,5 @@ public class StyleSwitchingSword extends SwordItem {
 	public void readShareTag(ItemStack stack, @Nullable CompoundNBT nbt) {
         stack.setTag(nbt);
         AttackDataAPI.get(stack).set(ElementalCombatNBTHelper.readAttackDataFromNBT(nbt));
-    }
-    
-    @OnlyIn(Dist.CLIENT)
-    @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-    	tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Right-click to switch style" + TextFormatting.RESET));
     }
 }
