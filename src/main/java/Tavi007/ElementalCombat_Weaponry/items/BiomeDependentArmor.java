@@ -20,7 +20,6 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -33,10 +32,15 @@ public class BiomeDependentArmor extends  ArmorItem {
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
 		if(world.getDayTime() % 20 == 0) {
-			Biome biome = world.getBiome(player.getPosition());
-			DefenseLayer layer = BasePropertiesAPI.getDefenseLayer(biome);
+			DefenseLayer layer = BasePropertiesAPI.getDefenseLayer(world, player.getPosition());
 			DefenseDataAPI.putLayer(stack, layer, ElementalCombatWeaponry.ARMOR_RESOURCE_LOCATION);
 		}
+	}
+
+	@OnlyIn(Dist.CLIENT)
+	@Override
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+		tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Elemental defense depends on current biome." + TextFormatting.RESET));
 	}
 
 	@Override
@@ -50,11 +54,5 @@ public class BiomeDependentArmor extends  ArmorItem {
 	public void readShareTag(ItemStack stack, @Nullable CompoundNBT nbt) {
 		stack.setTag(nbt);
 		DefenseDataAPI.get(stack).set(ElementalCombatNBTHelper.readDefenseDataFromNBT(nbt));
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	@Override
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-		tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Elemental defense depends on current biome." + TextFormatting.RESET));
 	}
 }
