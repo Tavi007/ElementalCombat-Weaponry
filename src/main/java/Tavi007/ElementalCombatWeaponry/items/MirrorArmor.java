@@ -1,4 +1,4 @@
-package Tavi007.ElementalCombat_Weaponry.items;
+package Tavi007.ElementalCombatWeaponry.items;
 
 import java.util.List;
 

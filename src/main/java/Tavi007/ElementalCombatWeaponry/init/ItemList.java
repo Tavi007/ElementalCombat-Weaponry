@@ -1,16 +1,16 @@
-package Tavi007.ElementalCombat_Weaponry.init;
+package Tavi007.ElementalCombatWeaponry.init;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import Tavi007.ElementalCombat_Weaponry.ElementalCombatWeaponry;
-import Tavi007.ElementalCombat_Weaponry.items.StyleSwitchingSword;
-import Tavi007.ElementalCombat_Weaponry.items.ArmorMaterial;
-import Tavi007.ElementalCombat_Weaponry.items.BiomeDependentArmor;
-import Tavi007.ElementalCombat_Weaponry.items.DayNightArmor;
-import Tavi007.ElementalCombat_Weaponry.items.ElementSwitchingSword;
-import Tavi007.ElementalCombat_Weaponry.items.MirrorArmor;
+import Tavi007.ElementalCombatWeaponry.ElementalCombatWeaponry;
+import Tavi007.ElementalCombatWeaponry.items.StyleSwitchingSword;
+import Tavi007.ElementalCombatWeaponry.items.ArmorMaterial;
+import Tavi007.ElementalCombatWeaponry.items.BiomeDependentArmor;
+import Tavi007.ElementalCombatWeaponry.items.DayNightArmor;
+import Tavi007.ElementalCombatWeaponry.items.ElementSwitchingSword;
+import Tavi007.ElementalCombatWeaponry.items.MirrorArmor;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.AxeItem;

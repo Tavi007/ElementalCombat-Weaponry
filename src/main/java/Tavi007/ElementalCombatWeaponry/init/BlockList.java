@@ -1,6 +1,6 @@
-package Tavi007.ElementalCombat_Weaponry.init;
+package Tavi007.ElementalCombatWeaponry.init;
 
-import Tavi007.ElementalCombat_Weaponry.ElementalCombatWeaponry;
+import Tavi007.ElementalCombatWeaponry.ElementalCombatWeaponry;
 import net.minecraft.block.Block;
 import net.minecraft.block.GlazedTerracottaBlock;
 import net.minecraft.block.material.Material;

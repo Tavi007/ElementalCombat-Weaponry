@@ -1,4 +1,4 @@
-package Tavi007.ElementalCombat_Weaponry.items;
+package Tavi007.ElementalCombatWeaponry.items;
 
 import java.util.HashSet;
 import java.util.List;
@@ -10,7 +10,7 @@ import Tavi007.ElementalCombat.api.AttackDataAPI;
 import Tavi007.ElementalCombat.api.attack.AttackData;
 import Tavi007.ElementalCombat.config.ServerConfig;
 import Tavi007.ElementalCombat.util.ElementalCombatNBTHelper;
-import Tavi007.ElementalCombat_Weaponry.util.CollectionUtil;
+import Tavi007.ElementalCombatWeaponry.util.CollectionUtil;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.IItemTier;

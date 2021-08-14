@@ -1,9 +1,9 @@
-package Tavi007.ElementalCombat_Weaponry.items;
+package Tavi007.ElementalCombatWeaponry.items;
 
 import java.util.function.Supplier;
 
-import Tavi007.ElementalCombat_Weaponry.ElementalCombatWeaponry;
-import Tavi007.ElementalCombat_Weaponry.init.ItemList;
+import Tavi007.ElementalCombatWeaponry.ElementalCombatWeaponry;
+import Tavi007.ElementalCombatWeaponry.init.ItemList;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.IArmorMaterial;

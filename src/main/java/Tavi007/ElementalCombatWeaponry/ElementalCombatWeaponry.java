@@ -1,15 +1,18 @@
-package Tavi007.ElementalCombat_Weaponry;
+package Tavi007.ElementalCombatWeaponry;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import Tavi007.ElementalCombat_Weaponry.init.BlockList;
-import Tavi007.ElementalCombat_Weaponry.init.ItemList;
+import Tavi007.ElementalCombatWeaponry.init.StartupClientOnly;
+import Tavi007.ElementalCombatWeaponry.init.BlockList;
+import Tavi007.ElementalCombatWeaponry.init.ItemList;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
@@ -23,8 +26,8 @@ public class ElementalCombatWeaponry
     public static IEventBus MOD_EVENT_BUS;
 	public static final ItemGroup ELEMENTAL_COMBAT_GROUP = new ElementalCombatWeaponry.ElementalCombatItemGroup(MOD_ID);
 	
-	
-    
+
+	@SuppressWarnings("deprecation")
 	public ElementalCombatWeaponry()
 	{
 		MOD_EVENT_BUS = FMLJavaModLoadingContext.get().getModEventBus();
@@ -35,6 +38,10 @@ public class ElementalCombatWeaponry
         
 		instance = this;
         MinecraftForge.EVENT_BUS.register(this);
+        
+
+		//register client only stuff
+        DistExecutor.runWhenOn(Dist.CLIENT, () -> ElementalCombatWeaponry::registerClientOnly);
 	}
 	
 	
@@ -49,5 +56,9 @@ public class ElementalCombatWeaponry
 			return new ItemStack(ItemList.FIREANDICE_SWORD.get());
 		}
 		
+	}
+	
+	private static void registerClientOnly() {
+		MOD_EVENT_BUS.register(StartupClientOnly.class);
 	}
 }

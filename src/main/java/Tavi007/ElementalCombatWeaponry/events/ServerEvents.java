@@ -1,4 +1,4 @@
-package Tavi007.ElementalCombat_Weaponry.events;
+package Tavi007.ElementalCombatWeaponry.events;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,9 +11,9 @@ import Tavi007.ElementalCombat.api.attack.AttackData;
 import Tavi007.ElementalCombat.api.defense.DefenseData;
 import Tavi007.ElementalCombat.api.defense.DefenseLayer;
 import Tavi007.ElementalCombat.config.ServerConfig;
-import Tavi007.ElementalCombat_Weaponry.ElementalCombatWeaponry;
-import Tavi007.ElementalCombat_Weaponry.init.ItemList;
-import Tavi007.ElementalCombat_Weaponry.items.MirrorArmor;
+import Tavi007.ElementalCombatWeaponry.ElementalCombatWeaponry;
+import Tavi007.ElementalCombatWeaponry.init.ItemList;
+import Tavi007.ElementalCombatWeaponry.items.MirrorArmor;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
