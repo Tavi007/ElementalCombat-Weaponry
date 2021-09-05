@@ -7,25 +7,25 @@
 	"overrides": [
         {
             "predicate": {
-                "elementalcombat_weaponry:worldtick": 2000
+                "elementalcombat_weaponry:worldtick": 1000
             },
             "model": "elementalcombat_weaponry:item/daynight_chestplate_day"
         },
         {
             "predicate": {
-                "elementalcombat_weaponry:worldtick": 10000
+                "elementalcombat_weaponry:worldtick": 11000
             },
             "model": "elementalcombat_weaponry:item/daynight_chestplate_sunset"
         },
         {
             "predicate": {
-                "elementalcombat_weaponry:worldtick": 14000
+                "elementalcombat_weaponry:worldtick": 13000
             },
             "model": "elementalcombat_weaponry:item/daynight_chestplate_night"
         },
         {
             "predicate": {
-                "elementalcombat_weaponry:worldtick": 22000
+                "elementalcombat_weaponry:worldtick": 23000
             },
             "model": "elementalcombat_weaponry:item/daynight_chestplate_sunset"
         }
