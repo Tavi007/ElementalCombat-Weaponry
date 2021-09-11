@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "yyy",
+        "yay",
+        "zaz"
+    ],
+    "key":
+    {
+        "z":
+        {
+            "item": "elementalcombat_weaponry:essence_light"
+        },
+        "y":
+        {
+            "item": "minecraft:string"
+        },
+        "a":
+        {
+            "item": "minecraft:paper"
+        }
+    },
+    "result":
+    {
+        "item": "elementalcombat_weaponry:ofuda",
+        "count": 1
+    }
+}

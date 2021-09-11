@@ -1,0 +1,49 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "bxc",
+        "yay",
+        "ezd"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "elementalcombat_weaponry:essence_wind"
+        },
+        "y":
+        {
+            "item": "elementalcombat_weaponry:essence_flora"
+        },
+        "z":
+        {
+            "item": "elementalcombat_weaponry:essence_earth"
+        },
+        "a":
+        {
+            "item": "minecraft:leather_chestplate"
+        },
+        "b":
+        {
+            "item": "minecraft:dirt"
+        },
+        "c":
+        {
+            "item": "minecraft:podzol"
+        },
+        "d":
+        {
+            "item": "minecraft:mycelium"
+        },
+        "e":
+        {
+            "item": "minecraft:gravel"
+        }
+    },
+    "result":
+    {
+        "item": "elementalcombat_weaponry:hiking_vest",
+        "count": 1
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "x x",
+        "yxy",
+        "z z"
+    ],
+    "key":
+    {
+        "z":
+        {
+            "item": "elementalcombat_weaponry:essence_darkness"
+        },
+        "y":
+        {
+            "item": "minecraft:black_stained_glass"
+        },
+        "x":
+        {
+            "item": "minecraft:stick"
+        }
+    },
+    "result":
+    {
+        "item": "elementalcombat_weaponry:sunglasses",
+        "count": 1
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "bxb",
+        "yay",
+        "bxb"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "elementalcombat_weaponry:essence_water"
+        },
+        "y":
+        {
+            "item": "minecraft:slime_ball"
+        },
+        "a":
+        {
+            "item": "minecraft:leather_boots"
+        },
+        "b":
+        {
+            "item": "minecraft:yellow_dye"
+        }
+    },
+    "result":
+    {
+        "item": "elementalcombat_weaponry:rubber_boots",
+        "count": 1
+    }
+}

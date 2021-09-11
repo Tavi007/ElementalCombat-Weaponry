@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xxx",
+        "x x",
+        "   "
+    ],
+    "key":
+    {
+        "x":
+        {
+            "tag": "minecraft:wool"
+        }
+    },
+    "result":
+    {
+        "item": "elementalcombat_weaponry:wool_helmet",
+        "count": 1
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        " x ",
+        "xax",
+        " x "
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "elementalcombat_weaponry:essence_ice"
+        },
+        "a":
+        {
+            "item": "minecraft:iron_leggings"
+        }
+    },
+    "result":
+    {
+        "item": "elementalcombat_weaponry:cooling_leggings",
+        "count": 1
+    }
+}

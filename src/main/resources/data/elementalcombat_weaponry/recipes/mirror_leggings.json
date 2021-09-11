@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xxx",
+        "xyx",
+        "xxx"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:glass"
+        },
+        "y":
+        {
+            "item": "minecraft:diamond_leggings"
+        }
+    },
+    "result":
+    {
+        "item": "elementalcombat_weaponry:mirror_leggings",
+        "count": 1
+    }
+}

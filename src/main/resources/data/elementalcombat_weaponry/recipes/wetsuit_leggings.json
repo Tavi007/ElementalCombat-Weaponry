@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        " x ",
+        "yay",
+        " x "
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "elementalcombat_weaponry:essence_water"
+        },
+        "y":
+        {
+            "item": "minecraft:slime_ball"
+        },
+        "a":
+        {
+            "item": "minecraft:leather_leggings"
+        }
+    },
+    "result":
+    {
+        "item": "elementalcombat_weaponry:wetsuit_leggings",
+        "count": 1
+    }
+}

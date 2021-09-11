@@ -74,6 +74,9 @@ dependencies {
 	//compileOnly fg.deobf("curse.maven:elementalcombat-397825:3250931") //this will work
 	//runtimeOnly fg.deobf("curse.maven:elementalcombat-397825:3250931")
 	
+    compileOnly fg.deobf("mezz.jei:jei-${version_jei}:api")
+    runtimeOnly fg.deobf("mezz.jei:jei-${version_jei}")
+	
 
 }
 
@@ -101,6 +104,12 @@ repositories {
 	flatDir {
         dirs 'libs' 
 	}
+	
+    maven {
+        // location of the maven that hosts JEI files
+        name = "jei"
+        url = "https://dvs1.progwml6.com/files/maven/"
+    }
 	
 }
 
