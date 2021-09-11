@@ -72,10 +72,10 @@ public class DayNightArmor extends  ArmorItem {
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
     	long time = entity.world.getDayTime();
-    	if (time >= 2000 && time<10000) {
+    	if (time >= 1000 && time<11000) {
             return ElementalCombatWeaponry.MOD_ID + ":textures/models/armor/clock_day_layer_1.png";
     	}
-    	else if (time >= 14000 && time<22000) {
+    	else if (time >= 13000 && time<23000) {
             return ElementalCombatWeaponry.MOD_ID + ":textures/models/armor/clock_night_layer_1.png";
     	}
     	else {
