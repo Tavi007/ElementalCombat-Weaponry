@@ -8,6 +8,7 @@ import Tavi007.ElementalCombatWeaponry.ElementalCombatWeaponry;
 import Tavi007.ElementalCombatWeaponry.items.StyleSwitchingSword;
 import Tavi007.ElementalCombatWeaponry.items.ArmorMaterial;
 import Tavi007.ElementalCombatWeaponry.items.BiomeDependentArmor;
+import Tavi007.ElementalCombatWeaponry.items.CopyAttackElementItem;
 import Tavi007.ElementalCombatWeaponry.items.DayNightArmor;
 import Tavi007.ElementalCombatWeaponry.items.ElementSwitchingSword;
 import Tavi007.ElementalCombatWeaponry.items.MirrorArmor;
@@ -57,7 +58,7 @@ public class ItemList {
 	public static final RegistryObject<Item> DIAMOND_HALBERD 	= ITEMS.register("diamond_halberd", () -> new StyleSwitchingSword(ItemTier.DIAMOND, 5, -2.8F, halberdStyles, singleStack));
 	
 	// need balance changes
-	public static final RegistryObject<Item> WATER_STAFF 		= ITEMS.register("water_staff", () -> new SwordItem(ItemTier.WOOD, 5, -1.4F, singleStackWMaxDmg.maxDamage(1000)));
+	public static final RegistryObject<Item> WATER_STAFF 		= ITEMS.register("water_staff", () -> new CopyAttackElementItem(ItemTier.WOOD, singleStackWMaxDmg.maxDamage(1000)));
 	public static final RegistryObject<Item> QUAKE_HAMMER 		= ITEMS.register("quake_hammer", () -> new SwordItem(ItemTier.WOOD, 10, -3.0F, singleStackWMaxDmg.maxDamage(1000)));
 	public static final RegistryObject<Item> THORN_CLUB 		= ITEMS.register("thorn_club", () -> new SwordItem(ItemTier.WOOD, 8, -2.7F, singleStackWMaxDmg.maxDamage(1000)));
 	public static final RegistryObject<Item> GUST_SWORD 		= ITEMS.register("gust_sword", () -> new SwordItem(ItemTier.WOOD, 6, -2.0F, singleStackWMaxDmg.maxDamage(1000)));
