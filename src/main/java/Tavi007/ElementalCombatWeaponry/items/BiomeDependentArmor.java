@@ -6,8 +6,7 @@ import javax.annotation.Nullable;
 
 import Tavi007.ElementalCombat.api.BasePropertiesAPI;
 import Tavi007.ElementalCombat.api.DefenseDataAPI;
-import Tavi007.ElementalCombat.api.defense.DefenseLayer;
-import Tavi007.ElementalCombat.util.ElementalCombatNBTHelper;
+import Tavi007.ElementalCombat.capabilities.defense.DefenseLayer;
 import Tavi007.ElementalCombatWeaponry.ElementalCombatWeaponry;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
@@ -46,13 +45,13 @@ public class BiomeDependentArmor extends  ArmorItem {
 	@Override
 	public CompoundNBT getShareTag(ItemStack stack) {
 		CompoundNBT nbt = stack.getTag();
-		ElementalCombatNBTHelper.writeDefenseDataToNBT(nbt, DefenseDataAPI.get(stack));
+		DefenseDataAPI.writeToNBT(nbt, stack);
 		return nbt;
 	}
 
 	@Override
 	public void readShareTag(ItemStack stack, @Nullable CompoundNBT nbt) {
+		DefenseDataAPI.readFromNBT(nbt, stack);
 		stack.setTag(nbt);
-		DefenseDataAPI.get(stack).set(ElementalCombatNBTHelper.readDefenseDataFromNBT(nbt));
 	}
 }

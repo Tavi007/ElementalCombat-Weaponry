@@ -7,9 +7,8 @@ import java.util.List;
 
 import Tavi007.ElementalCombat.api.AttackDataAPI;
 import Tavi007.ElementalCombat.api.DefenseDataAPI;
-import Tavi007.ElementalCombat.api.attack.AttackData;
-import Tavi007.ElementalCombat.api.defense.DefenseData;
-import Tavi007.ElementalCombat.api.defense.DefenseLayer;
+import Tavi007.ElementalCombat.capabilities.attack.AttackLayer;
+import Tavi007.ElementalCombat.capabilities.defense.DefenseLayer;
 import Tavi007.ElementalCombat.config.ServerConfig;
 import Tavi007.ElementalCombatWeaponry.ElementalCombatWeaponry;
 import Tavi007.ElementalCombatWeaponry.init.ItemList;
@@ -31,10 +30,11 @@ public class ServerEvents {
 	@SubscribeEvent
 	public static void onLivingDropsEvent(LivingDropsEvent event) {
 		if(!(event.getEntityLiving() instanceof PlayerEntity)) {
-			AttackData atckData = AttackDataAPI.getWithActiveItem(event.getEntityLiving());
+			
+			AttackLayer atckData = AttackDataAPI.getFullDataAsLayer(event.getEntityLiving());
 			addEssenceDropToList(atckData.getElement(), event.getEntityLiving(), event.getDrops(), event.getLootingLevel());
 
-			DefenseData defData = DefenseDataAPI.get(event.getEntityLiving());
+			DefenseLayer defData = DefenseDataAPI.getFullDataAsLayer(event.getEntityLiving());
 			defData.getElementFactor().forEach((element,factor) -> {
 				if(factor > 0) {
 					addEssenceDropToList(element, event.getEntityLiving(), event.getDrops(), event.getLootingLevel());
@@ -95,15 +95,14 @@ public class ServerEvents {
 
 		if(!mirrorStacks.isEmpty()) {
 			DamageSource damageSource = event.getSource();
-			final AttackData data = AttackDataAPI.get(damageSource);
+			AttackLayer attackLayer = AttackDataAPI.getFullDataAsLayer(damageSource);
 			HashMap<String, Integer> elemMap = new HashMap<String, Integer>();
 			HashMap<String, Integer> styleMap = new HashMap<String, Integer>();
-			elemMap.put(data.getElement(), ServerConfig.getMaxFactor()/10);
-			styleMap.put(data.getStyle(), ServerConfig.getMaxFactor()/10);
-			DefenseLayer layer = new DefenseLayer(styleMap, elemMap);
-
+			elemMap.put(attackLayer.getElement(), ServerConfig.getMaxFactor()/10);
+			styleMap.put(attackLayer.getStyle(), ServerConfig.getMaxFactor()/10);
+			DefenseLayer defenseLayer = new DefenseLayer(styleMap, elemMap);
 			mirrorStacks.forEach(stack -> {
-				DefenseDataAPI.putLayer(stack, layer, ElementalCombatWeaponry.ARMOR_RESOURCE_LOCATION);
+				DefenseDataAPI.putLayer(stack, defenseLayer, ElementalCombatWeaponry.ARMOR_RESOURCE_LOCATION);
 			});
 		}
 

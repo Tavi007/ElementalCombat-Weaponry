@@ -66,7 +66,7 @@ public class ItemList {
 	public static final RegistryObject<Item> VOID_AXE 			= ITEMS.register("void_axe", () -> new AxeItem(ItemTier.DIAMOND, 5.0F, -3.0F, singleStack));
 	public static final RegistryObject<Item> LIGHT_BOW 			= ITEMS.register("light_bow", () -> new BowItem(singleStack));
 	
-	public static final String[] fireAndIceArray = new String[] {"fire", "ice"};
+	public static final String[] fireAndIceArray = new String[] {"ice", "fire"};
 	public static final Set<String> fireAndIce = new HashSet<>(Arrays.asList(fireAndIceArray));
 	public static final RegistryObject<Item> FIREANDICE_SWORD = ITEMS.register("fire_and_ice_sword", () -> new ElementSwitchingSword(ItemTier.IRON, 3, -2.4F, fireAndIce, singleStack));
 	

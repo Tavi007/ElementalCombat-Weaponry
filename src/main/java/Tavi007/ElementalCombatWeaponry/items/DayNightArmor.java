@@ -6,8 +6,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import Tavi007.ElementalCombat.api.DefenseDataAPI;
-import Tavi007.ElementalCombat.api.defense.DefenseLayer;
-import Tavi007.ElementalCombat.util.ElementalCombatNBTHelper;
+import Tavi007.ElementalCombat.capabilities.defense.DefenseLayer;
 import Tavi007.ElementalCombatWeaponry.ElementalCombatWeaponry;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
@@ -49,18 +48,18 @@ public class DayNightArmor extends  ArmorItem {
 		DefenseDataAPI.putLayer(stack, layer, ElementalCombatWeaponry.ARMOR_RESOURCE_LOCATION);
 	}
 
-    @Override
-    public CompoundNBT getShareTag(ItemStack stack) {
-        CompoundNBT nbt = stack.getTag();
-        ElementalCombatNBTHelper.writeDefenseDataToNBT(nbt, DefenseDataAPI.get(stack));
-        return nbt;
-    }
+	@Override
+	public CompoundNBT getShareTag(ItemStack stack) {
+		CompoundNBT nbt = stack.getTag();
+		DefenseDataAPI.writeToNBT(nbt, stack);
+		return nbt;
+	}
 
-    @Override
+	@Override
 	public void readShareTag(ItemStack stack, @Nullable CompoundNBT nbt) {
-        stack.setTag(nbt);
-        DefenseDataAPI.get(stack).set(ElementalCombatNBTHelper.readDefenseDataFromNBT(nbt));
-    }
+		DefenseDataAPI.readFromNBT(nbt, stack);
+		stack.setTag(nbt);
+	}
     
     @OnlyIn(Dist.CLIENT)
     @Override

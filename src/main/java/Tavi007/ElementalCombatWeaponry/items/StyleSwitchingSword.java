@@ -7,9 +7,8 @@ import java.util.Set;
 import javax.annotation.Nullable;
 
 import Tavi007.ElementalCombat.api.AttackDataAPI;
-import Tavi007.ElementalCombat.api.attack.AttackData;
-import Tavi007.ElementalCombat.config.ServerConfig;
-import Tavi007.ElementalCombat.util.ElementalCombatNBTHelper;
+import Tavi007.ElementalCombat.capabilities.attack.AttackLayer;
+import Tavi007.ElementalCombatWeaponry.ElementalCombatWeaponry;
 import Tavi007.ElementalCombatWeaponry.util.CollectionUtil;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
@@ -19,6 +18,7 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
@@ -29,6 +29,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class StyleSwitchingSword extends SwordItem {
 
 	private Set<String> styles = new HashSet<String>();
+	private ResourceLocation location = new ResourceLocation(ElementalCombatWeaponry.MOD_ID,"style_switch");
 	
 	public StyleSwitchingSword(IItemTier tier, int attackDamageIn, float attackSpeedIn, Set<String> styles, Properties builderIn) {
 		super(tier, attackDamageIn, attackSpeedIn, builderIn);
@@ -38,13 +39,17 @@ public class StyleSwitchingSword extends SwordItem {
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		ItemStack stack = playerIn.getHeldItem(handIn);
-		AttackData atckData = AttackDataAPI.get(stack);
-		String nextStyle = CollectionUtil.getNext(styles, atckData.getStyle(), true);
-		if(styles != null) {
-			atckData.setStyle(nextStyle);
+		AttackLayer layer = AttackDataAPI.getLayer(stack, location);
+		String nextStyle = CollectionUtil.getNext(styles, layer.getStyle(), true);
+		if(nextStyle != null) {
+			layer.setStyle(nextStyle);
+			AttackDataAPI.putLayer(stack, layer, location, playerIn);
 			return ActionResult.resultSuccess(playerIn.getHeldItem(handIn));
-		} else {
-			atckData.setElement(ServerConfig.getDefaultStyle());
+		}
+		else {
+			AttackDataAPI.deleteLayer(stack, location, playerIn);
+			layer.setStyle(styles.iterator().next());
+			AttackDataAPI.putLayer(stack, layer, location, playerIn);
 			return ActionResult.resultFail(playerIn.getHeldItem(handIn));
 		}
 	}
@@ -55,16 +60,16 @@ public class StyleSwitchingSword extends SwordItem {
     	tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Right-click to switch style" + TextFormatting.RESET));
     }
 
-    @Override
-    public CompoundNBT getShareTag(ItemStack stack) {
-        CompoundNBT nbt = stack.getTag();
-        ElementalCombatNBTHelper.writeAttackDataToNBT(nbt, AttackDataAPI.get(stack));
-        return nbt;
-    }
+	@Override
+	public CompoundNBT getShareTag(ItemStack stack) {
+		CompoundNBT nbt = stack.getTag();
+		AttackDataAPI.writeToNBT(nbt, stack);
+		return nbt;
+	}
 
-    @Override
+	@Override
 	public void readShareTag(ItemStack stack, @Nullable CompoundNBT nbt) {
-        stack.setTag(nbt);
-        AttackDataAPI.get(stack).set(ElementalCombatNBTHelper.readAttackDataFromNBT(nbt));
-    }
+		AttackDataAPI.readFromNBT(nbt, stack);
+		stack.setTag(nbt);
+	}
 }

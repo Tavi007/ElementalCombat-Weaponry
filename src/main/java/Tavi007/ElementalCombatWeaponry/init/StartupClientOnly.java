@@ -1,10 +1,7 @@
 package Tavi007.ElementalCombatWeaponry.init;
 
 import Tavi007.ElementalCombatWeaponry.ElementalCombatWeaponry;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemModelsProperties;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
