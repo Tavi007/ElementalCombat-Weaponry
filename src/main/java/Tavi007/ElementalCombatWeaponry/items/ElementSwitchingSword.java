@@ -29,53 +29,51 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class ElementSwitchingSword extends SwordItem {
 
-	private Set<String> elements = new HashSet<String>();
-	private ResourceLocation location = new ResourceLocation(ElementalCombatWeaponry.MOD_ID,"element_switch");
-	
-	public ElementSwitchingSword(IItemTier tier, int attackDamageIn, float attackSpeedIn, Set<String> elements, Properties p_i48460_4_) {
-		super(tier, attackDamageIn, attackSpeedIn, p_i48460_4_);
-		if(elements.isEmpty()) {
-			this.elements.add(ServerConfig.getDefaultElement());
-		}
-		else {
-			this.elements = elements;
-		}
-	}
-	
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-		ItemStack stack = playerIn.getHeldItem(handIn);
-		AttackLayer layer = AttackDataAPI.getLayer(stack, location);
-		String nextElement = CollectionUtil.getNext(elements, layer.getElement(), true);
-		if(nextElement != null) {
-			layer.setElement(nextElement);
-			AttackDataAPI.putLayer(stack, layer, location, playerIn);
-			return ActionResult.resultSuccess(playerIn.getHeldItem(handIn));
-		}
-		else {
-			AttackDataAPI.deleteLayer(stack, location, playerIn);
-			layer.setElement(elements.iterator().next());
-			AttackDataAPI.putLayer(stack, layer, location, playerIn);
-			return ActionResult.resultFail(playerIn.getHeldItem(handIn));
-		}
-	}
+    private Set<String> elements = new HashSet<String>();
+    private ResourceLocation location = new ResourceLocation(ElementalCombatWeaponry.MOD_ID, "element_switch");
 
-	@OnlyIn(Dist.CLIENT)
-    @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-    	tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Right-click to switch element" + TextFormatting.RESET));
+    public ElementSwitchingSword(IItemTier tier, int attackDamageIn, float attackSpeedIn, Set<String> elements, Properties p_i48460_4_) {
+        super(tier, attackDamageIn, attackSpeedIn, p_i48460_4_);
+        if (elements.isEmpty()) {
+            this.elements.add(ServerConfig.getDefaultElement());
+        } else {
+            this.elements = elements;
+        }
     }
 
-	@Override
-	public CompoundNBT getShareTag(ItemStack stack) {
-		CompoundNBT nbt = stack.getTag();
-		AttackDataAPI.writeToNBT(nbt, stack);
-		return nbt;
-	}
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
+        ItemStack stack = playerIn.getHeldItem(handIn);
+        AttackLayer layer = AttackDataAPI.getLayer(stack, location);
+        String nextElement = CollectionUtil.getNext(elements, layer.getElement(), true);
+        if (nextElement != null) {
+            layer.setElement(nextElement);
+            AttackDataAPI.putLayer(stack, layer, location, playerIn);
+            return ActionResult.resultSuccess(playerIn.getHeldItem(handIn));
+        } else {
+            AttackDataAPI.deleteLayer(stack, location, playerIn);
+            layer.setElement(elements.iterator().next());
+            AttackDataAPI.putLayer(stack, layer, location, playerIn);
+            return ActionResult.resultFail(playerIn.getHeldItem(handIn));
+        }
+    }
 
-	@Override
-	public void readShareTag(ItemStack stack, @Nullable CompoundNBT nbt) {
-		AttackDataAPI.readFromNBT(nbt, stack);
-		stack.setTag(nbt);
-	}
+    @OnlyIn(Dist.CLIENT)
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+        tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Right-click to switch element" + TextFormatting.RESET));
+    }
+
+    @Override
+    public CompoundNBT getShareTag(ItemStack stack) {
+        CompoundNBT nbt = stack.getTag();
+        AttackDataAPI.writeToNBT(nbt, stack);
+        return nbt;
+    }
+
+    @Override
+    public void readShareTag(ItemStack stack, @Nullable CompoundNBT nbt) {
+        AttackDataAPI.readFromNBT(nbt, stack);
+        stack.setTag(nbt);
+    }
 }

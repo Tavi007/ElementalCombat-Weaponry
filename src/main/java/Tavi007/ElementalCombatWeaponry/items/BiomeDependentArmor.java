@@ -22,36 +22,36 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class BiomeDependentArmor extends  ArmorItem {
+public class BiomeDependentArmor extends ArmorItem {
 
-	public BiomeDependentArmor(IArmorMaterial materialIn, EquipmentSlotType slot, Properties p_i48534_3_) {
-		super(materialIn, slot, p_i48534_3_);
-	}
+    public BiomeDependentArmor(IArmorMaterial materialIn, EquipmentSlotType slot, Properties p_i48534_3_) {
+        super(materialIn, slot, p_i48534_3_);
+    }
 
-	@Override
-	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-		if(world.getDayTime() % 20 == 0) {
-			DefenseLayer layer = BasePropertiesAPI.getDefenseLayer(world, player.getPosition());
-			DefenseDataAPI.putLayer(stack, layer, ElementalCombatWeaponry.ARMOR_RESOURCE_LOCATION);
-		}
-	}
+    @Override
+    public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
+        if (world.getDayTime() % 20 == 0) {
+            DefenseLayer layer = BasePropertiesAPI.getDefenseLayer(world, player.getPosition());
+            DefenseDataAPI.putLayer(stack, layer, ElementalCombatWeaponry.ARMOR_RESOURCE_LOCATION);
+        }
+    }
 
-	@OnlyIn(Dist.CLIENT)
-	@Override
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-		tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Elemental defense depends on current biome." + TextFormatting.RESET));
-	}
+    @OnlyIn(Dist.CLIENT)
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+        tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Elemental defense depends on current biome." + TextFormatting.RESET));
+    }
 
-	@Override
-	public CompoundNBT getShareTag(ItemStack stack) {
-		CompoundNBT nbt = stack.getTag();
-		DefenseDataAPI.writeToNBT(nbt, stack);
-		return nbt;
-	}
+    @Override
+    public CompoundNBT getShareTag(ItemStack stack) {
+        CompoundNBT nbt = stack.getTag();
+        DefenseDataAPI.writeToNBT(nbt, stack);
+        return nbt;
+    }
 
-	@Override
-	public void readShareTag(ItemStack stack, @Nullable CompoundNBT nbt) {
-		DefenseDataAPI.readFromNBT(nbt, stack);
-		stack.setTag(nbt);
-	}
+    @Override
+    public void readShareTag(ItemStack stack, @Nullable CompoundNBT nbt) {
+        DefenseDataAPI.readFromNBT(nbt, stack);
+        stack.setTag(nbt);
+    }
 }

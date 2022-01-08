@@ -22,30 +22,30 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class CopyAttackElementItem extends TieredItem {
 
-	private ResourceLocation location = new ResourceLocation(ElementalCombatWeaponry.MOD_ID, "copy_staff");
-	
-	public CopyAttackElementItem(IItemTier tier, Properties builderIn) {
-		super(tier, builderIn);
-	}
-	
-	@Override
-	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		if(attacker.isCrouching()) {
-			AttackDataAPI.deleteLayer(target, location);
-		} else {
-			AttackLayer layer = new AttackLayer();
-			String element = AttackDataAPI.getFullDataAsLayer(stack).getElement();
-			layer.setElement(element);
-			AttackDataAPI.putLayer(target, layer, location);
-		}
-		return false;
-	}
+    private ResourceLocation location = new ResourceLocation(ElementalCombatWeaponry.MOD_ID, "copy_staff");
 
-	@OnlyIn(Dist.CLIENT)
-	@Override
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-		tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Left-Click to change elemental Attack of any mob." + TextFormatting.RESET));
-		tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Shift Left-Click to revert back to base value." + TextFormatting.RESET));
-	}
+    public CopyAttackElementItem(IItemTier tier, Properties builderIn) {
+        super(tier, builderIn);
+    }
+
+    @Override
+    public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        if (attacker.isCrouching()) {
+            AttackDataAPI.deleteLayer(target, location);
+        } else {
+            AttackLayer layer = new AttackLayer();
+            String element = AttackDataAPI.getFullDataAsLayer(stack).getElement();
+            layer.setElement(element);
+            AttackDataAPI.putLayer(target, layer, location);
+        }
+        return false;
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+        tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Left-Click to change elemental Attack of any mob." + TextFormatting.RESET));
+        tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Shift Left-Click to revert back to base value." + TextFormatting.RESET));
+    }
 
 }

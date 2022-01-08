@@ -28,48 +28,47 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class StyleSwitchingSword extends SwordItem {
 
-	private Set<String> styles = new HashSet<String>();
-	private ResourceLocation location = new ResourceLocation(ElementalCombatWeaponry.MOD_ID,"style_switch");
-	
-	public StyleSwitchingSword(IItemTier tier, int attackDamageIn, float attackSpeedIn, Set<String> styles, Properties builderIn) {
-		super(tier, attackDamageIn, attackSpeedIn, builderIn);
-		this.styles = styles;
-	}
+    private Set<String> styles = new HashSet<String>();
+    private ResourceLocation location = new ResourceLocation(ElementalCombatWeaponry.MOD_ID, "style_switch");
 
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-		ItemStack stack = playerIn.getHeldItem(handIn);
-		AttackLayer layer = AttackDataAPI.getLayer(stack, location);
-		String nextStyle = CollectionUtil.getNext(styles, layer.getStyle(), true);
-		if(nextStyle != null) {
-			layer.setStyle(nextStyle);
-			AttackDataAPI.putLayer(stack, layer, location, playerIn);
-			return ActionResult.resultSuccess(playerIn.getHeldItem(handIn));
-		}
-		else {
-			AttackDataAPI.deleteLayer(stack, location, playerIn);
-			layer.setStyle(styles.iterator().next());
-			AttackDataAPI.putLayer(stack, layer, location, playerIn);
-			return ActionResult.resultFail(playerIn.getHeldItem(handIn));
-		}
-	}
-
-	@OnlyIn(Dist.CLIENT)
-    @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-    	tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Right-click to switch style" + TextFormatting.RESET));
+    public StyleSwitchingSword(IItemTier tier, int attackDamageIn, float attackSpeedIn, Set<String> styles, Properties builderIn) {
+        super(tier, attackDamageIn, attackSpeedIn, builderIn);
+        this.styles = styles;
     }
 
-	@Override
-	public CompoundNBT getShareTag(ItemStack stack) {
-		CompoundNBT nbt = stack.getTag();
-		AttackDataAPI.writeToNBT(nbt, stack);
-		return nbt;
-	}
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
+        ItemStack stack = playerIn.getHeldItem(handIn);
+        AttackLayer layer = AttackDataAPI.getLayer(stack, location);
+        String nextStyle = CollectionUtil.getNext(styles, layer.getStyle(), true);
+        if (nextStyle != null) {
+            layer.setStyle(nextStyle);
+            AttackDataAPI.putLayer(stack, layer, location, playerIn);
+            return ActionResult.resultSuccess(playerIn.getHeldItem(handIn));
+        } else {
+            AttackDataAPI.deleteLayer(stack, location, playerIn);
+            layer.setStyle(styles.iterator().next());
+            AttackDataAPI.putLayer(stack, layer, location, playerIn);
+            return ActionResult.resultFail(playerIn.getHeldItem(handIn));
+        }
+    }
 
-	@Override
-	public void readShareTag(ItemStack stack, @Nullable CompoundNBT nbt) {
-		AttackDataAPI.readFromNBT(nbt, stack);
-		stack.setTag(nbt);
-	}
+    @OnlyIn(Dist.CLIENT)
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+        tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Right-click to switch style" + TextFormatting.RESET));
+    }
+
+    @Override
+    public CompoundNBT getShareTag(ItemStack stack) {
+        CompoundNBT nbt = stack.getTag();
+        AttackDataAPI.writeToNBT(nbt, stack);
+        return nbt;
+    }
+
+    @Override
+    public void readShareTag(ItemStack stack, @Nullable CompoundNBT nbt) {
+        AttackDataAPI.readFromNBT(nbt, stack);
+        stack.setTag(nbt);
+    }
 }
