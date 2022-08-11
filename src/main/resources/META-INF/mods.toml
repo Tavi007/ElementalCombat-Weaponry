@@ -31,6 +31,6 @@ description= "This mod showcases the fun stuff, one can do with the Elemental Co
 #[[dependencies.elementalcombat_weaponry]]
 #    modId="elementalcombat"
 #    mandatory=true
-#    versionRange="[1.2,)"
+#    versionRange="[1.2.0.0,)"
 #    ordering="NONE"
 #    side="BOTH"
