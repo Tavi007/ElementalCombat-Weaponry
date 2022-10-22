@@ -15,6 +15,7 @@ import net.minecraft.item.ArmorItem;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
@@ -31,14 +32,15 @@ public class BiomeDependentArmor extends ArmorItem {
     @Override
     public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
         if (world.getDayTime() % 20 == 0) {
-            DefenseLayer layer = BasePropertiesAPI.getDefenseLayer(world, player.getPosition());
+            ResourceLocation biomeResourceLocation = world.getBiome(player.blockPosition()).getRegistryName();
+            DefenseLayer layer = BasePropertiesAPI.getDefenseLayer(biomeResourceLocation);
             DefenseDataAPI.putLayer(stack, layer, ElementalCombatWeaponry.ARMOR_RESOURCE_LOCATION);
         }
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Elemental defense depends on current biome." + TextFormatting.RESET));
     }
 

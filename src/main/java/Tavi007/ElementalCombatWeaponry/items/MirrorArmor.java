@@ -39,7 +39,7 @@ public class MirrorArmor extends ArmorItem {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Elemental defense depends on last damage taken." + TextFormatting.RESET));
     }
 

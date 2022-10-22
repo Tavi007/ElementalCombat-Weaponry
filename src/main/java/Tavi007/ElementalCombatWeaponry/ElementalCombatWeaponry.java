@@ -48,10 +48,9 @@ public class ElementalCombatWeaponry {
         }
 
         @Override
-        public ItemStack createIcon() {
+        public ItemStack makeIcon() {
             return new ItemStack(ItemList.FIREANDICE_SWORD.get());
         }
-
     }
 
     private static void registerClientOnly() {

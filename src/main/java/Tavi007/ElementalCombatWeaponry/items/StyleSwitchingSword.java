@@ -37,25 +37,25 @@ public class StyleSwitchingSword extends SwordItem {
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        ItemStack stack = playerIn.getHeldItem(handIn);
+    public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
+        ItemStack stack = playerIn.getItemInHand(handIn);
         AttackLayer layer = AttackDataAPI.getLayer(stack, location);
         String nextStyle = CollectionUtil.getNext(styles, layer.getStyle(), true);
         if (nextStyle != null) {
             layer.setStyle(nextStyle);
             AttackDataAPI.putLayer(stack, layer, location, playerIn);
-            return ActionResult.resultSuccess(playerIn.getHeldItem(handIn));
+            return ActionResult.success(playerIn.getItemInHand(handIn));
         } else {
             AttackDataAPI.deleteLayer(stack, location, playerIn);
             layer.setStyle(styles.iterator().next());
             AttackDataAPI.putLayer(stack, layer, location, playerIn);
-            return ActionResult.resultFail(playerIn.getHeldItem(handIn));
+            return ActionResult.fail(playerIn.getItemInHand(handIn));
         }
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Right-click to switch style" + TextFormatting.RESET));
     }
 

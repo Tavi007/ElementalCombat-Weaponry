@@ -21,10 +21,11 @@ sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = co
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings channel: 'snapshot', version: "${version_mcp}"
-    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+    mappings channel: 'official', version: "${version_mc}"
     
+    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    
     runs {
         client {
             workingDirectory project.file('run')
@@ -55,7 +56,7 @@ minecraft {
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
 
-            args '--mod', 'eleme', '--all', '--output', file('src/generated/resources/')
+            args '--mod', 'elementalcombat_weaponry', '--all', '--output', file('src/generated/resources/')
 
             mods {
                 elementalcombat_weaponry {
@@ -70,8 +71,8 @@ dependencies {
     minecraft "net.minecraftforge:forge:${version_forge}"
 	
 //	implementation fg.deobf("io.tavi007.elementalCombat:elementalcombat-forge-1.16.5-1.1.1-api:${version_elementalcombat}") //this will work
-    compileOnly fg.deobf("io.tavi007.elementalCombat:elementalcombat-forge-1.16.5-1.2-api:${version_elementalcombat}")
-    runtimeOnly fg.deobf("io.tavi007.elementalCombat:elementalcombat-forge-1.16.5-1.2:${version_elementalcombat}")
+    compileOnly fg.deobf("io.tavi007.elementalCombat:elementalcombat-forge-${version_elementalcombat}-api:${version_elementalcombat}")
+    runtimeOnly fg.deobf("io.tavi007.elementalCombat:elementalcombat-forge-${version_elementalcombat}:${version_elementalcombat}")
 	
 	//compileOnly fg.deobf("curse.maven:elementalcombat-397825:3250931") //this will work
 	//runtimeOnly fg.deobf("curse.maven:elementalcombat-397825:3250931")

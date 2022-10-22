@@ -62,14 +62,14 @@ public class DayNightArmor extends ArmorItem {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Elemental defense depends on world time." + TextFormatting.RESET));
     }
 
     @Nullable
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
-        long time = entity.world.getDayTime();
+        long time = entity.level.getDayTime();
         if (time >= 1000 && time < 11000) {
             return ElementalCombatWeaponry.MOD_ID + ":textures/models/armor/clock_day_layer_1.png";
         } else if (time >= 13000 && time < 23000) {

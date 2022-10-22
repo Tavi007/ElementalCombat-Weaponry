@@ -29,7 +29,7 @@ public class CopyAttackElementItem extends TieredItem {
     }
 
     @Override
-    public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+    public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if (attacker.isCrouching()) {
             AttackDataAPI.deleteLayer(target, location);
         } else {
@@ -43,7 +43,7 @@ public class CopyAttackElementItem extends TieredItem {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Left-Click to change elemental Attack of any mob." + TextFormatting.RESET));
         tooltip.add(new StringTextComponent("" + TextFormatting.GRAY + "Shift Left-Click to revert back to base value." + TextFormatting.RESET));
     }

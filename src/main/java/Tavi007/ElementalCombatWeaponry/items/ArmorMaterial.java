@@ -18,16 +18,16 @@ import net.minecraftforge.common.util.Lazy;
 public enum ArmorMaterial implements IArmorMaterial {
 
     // needs balance changes
-    CLOCK("clock", 30, new int[] { 2, 6, 7, 3 }, 9, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 1.0F, 0.0F, () -> Ingredient.fromItems(Items.CLOCK)),
-    CREEPER("creeper", 30, new int[] { 2, 6, 7, 3 }, 12, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 1.0F, 0.0F, () -> Ingredient.fromItems(Items.CREEPER_HEAD)),
-    HIKING("hiking", 30, new int[] { 2, 6, 7, 3 }, 9, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 1.0F, 0.0F,
-            () -> Ingredient.fromItems(ItemList.ESSENCE_EARTH.get())),
-    IRON("iron", 30, new int[] { 2, 6, 7, 3 }, 12, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 1.0F, 0.0F, () -> Ingredient.fromItems(Items.IRON_INGOT)),
-    MIRROR("mirror", 30, new int[] { 2, 6, 7, 3 }, 9, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 1.0F, 0.0F, () -> Ingredient.fromItems(Items.GLASS)),
-    PAPER("paper", 30, new int[] { 2, 6, 7, 3 }, 25, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 1.0F, 0.0F, () -> Ingredient.fromItems(Items.PAPER)),
-    RUBBER("rubber", 30, new int[] { 2, 6, 7, 3 }, 12, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 1.0F, 0.0F, () -> Ingredient.fromItems(Items.LEATHER)),
-    SUNGLASS("sunglass", 30, new int[] { 2, 6, 7, 3 }, 12, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 1.0F, 0.0F, () -> Ingredient.fromItems(Items.GLASS)),
-    WOOL("wool", 30, new int[] { 2, 6, 7, 3 }, 12, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 1.0F, 0.0F, () -> Ingredient.fromTag(ItemTags.WOOL));
+    CLOCK("clock", 30, new int[] { 2, 6, 7, 3 }, 9, SoundEvents.ARMOR_EQUIP_GENERIC, 1.0F, 0.0F, () -> Ingredient.of(Items.CLOCK)),
+    CREEPER("creeper", 30, new int[] { 2, 6, 7, 3 }, 12, SoundEvents.ARMOR_EQUIP_GENERIC, 1.0F, 0.0F, () -> Ingredient.of(Items.CREEPER_HEAD)),
+    HIKING("hiking", 30, new int[] { 2, 6, 7, 3 }, 9, SoundEvents.ARMOR_EQUIP_GENERIC, 1.0F, 0.0F,
+            () -> Ingredient.of(ItemList.ESSENCE_EARTH.get())),
+    IRON("iron", 30, new int[] { 2, 6, 7, 3 }, 12, SoundEvents.ARMOR_EQUIP_GENERIC, 1.0F, 0.0F, () -> Ingredient.of(Items.IRON_INGOT)),
+    MIRROR("mirror", 30, new int[] { 2, 6, 7, 3 }, 9, SoundEvents.ARMOR_EQUIP_GENERIC, 1.0F, 0.0F, () -> Ingredient.of(Items.GLASS)),
+    PAPER("paper", 30, new int[] { 2, 6, 7, 3 }, 25, SoundEvents.ARMOR_EQUIP_GENERIC, 1.0F, 0.0F, () -> Ingredient.of(Items.PAPER)),
+    RUBBER("rubber", 30, new int[] { 2, 6, 7, 3 }, 12, SoundEvents.ARMOR_EQUIP_GENERIC, 1.0F, 0.0F, () -> Ingredient.of(Items.LEATHER)),
+    SUNGLASS("sunglass", 30, new int[] { 2, 6, 7, 3 }, 12, SoundEvents.ARMOR_EQUIP_GENERIC, 1.0F, 0.0F, () -> Ingredient.of(Items.GLASS)),
+    WOOL("wool", 30, new int[] { 2, 6, 7, 3 }, 12, SoundEvents.ARMOR_EQUIP_GENERIC, 1.0F, 0.0F, () -> Ingredient.of(ItemTags.WOOL));
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[] { 13, 15, 16, 11 };
     private final String name;
@@ -52,27 +52,27 @@ public enum ArmorMaterial implements IArmorMaterial {
     }
 
     @Override
-    public int getDurability(EquipmentSlotType slotIn) {
+    public int getDurabilityForSlot(EquipmentSlotType slotIn) {
         return MAX_DAMAGE_ARRAY[slotIn.getIndex()] * this.maxDamageFactor;
     }
 
     @Override
-    public int getDamageReductionAmount(EquipmentSlotType slotIn) {
+    public int getDefenseForSlot(EquipmentSlotType slotIn) {
         return this.damageReductionAmountArray[slotIn.getIndex()];
     }
 
     @Override
-    public int getEnchantability() {
+    public int getEnchantmentValue() {
         return this.enchantability;
     }
 
     @Override
-    public SoundEvent getSoundEvent() {
+    public SoundEvent getEquipSound() {
         return this.soundEvent;
     }
 
     @Override
-    public Ingredient getRepairMaterial() {
+    public Ingredient getRepairIngredient() {
         return this.repairMaterialLazy.get();
     }
 

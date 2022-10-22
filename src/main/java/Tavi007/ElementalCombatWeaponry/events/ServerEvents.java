@@ -47,37 +47,37 @@ public class ServerEvents {
         int numberOfDrops = 1 + lootingLevel;
 
         if (numberOfDrops > 0) {
-            double x = entity.getPosX();
-            double y = entity.getPosY();
-            double z = entity.getPosZ();
+            double x = entity.getX();
+            double y = entity.getY();
+            double z = entity.getZ();
 
             switch (element) {
             case "fire":
-                drops.add(new ItemEntity(entity.getEntityWorld(), x, y, z, new ItemStack(ItemList.ESSENCE_FIRE.get(), numberOfDrops)));
+                drops.add(new ItemEntity(entity.getCommandSenderWorld(), x, y, z, new ItemStack(ItemList.ESSENCE_FIRE.get(), numberOfDrops)));
                 break;
             case "ice":
-                drops.add(new ItemEntity(entity.getEntityWorld(), x, y, z, new ItemStack(ItemList.ESSENCE_ICE.get(), numberOfDrops)));
+                drops.add(new ItemEntity(entity.getCommandSenderWorld(), x, y, z, new ItemStack(ItemList.ESSENCE_ICE.get(), numberOfDrops)));
                 break;
             case "water":
-                drops.add(new ItemEntity(entity.getEntityWorld(), x, y, z, new ItemStack(ItemList.ESSENCE_WATER.get(), numberOfDrops)));
+                drops.add(new ItemEntity(entity.getCommandSenderWorld(), x, y, z, new ItemStack(ItemList.ESSENCE_WATER.get(), numberOfDrops)));
                 break;
             case "thunder":
-                drops.add(new ItemEntity(entity.getEntityWorld(), x, y, z, new ItemStack(ItemList.ESSENCE_THUNDER.get(), numberOfDrops)));
+                drops.add(new ItemEntity(entity.getCommandSenderWorld(), x, y, z, new ItemStack(ItemList.ESSENCE_THUNDER.get(), numberOfDrops)));
                 break;
             case "darkness":
-                drops.add(new ItemEntity(entity.getEntityWorld(), x, y, z, new ItemStack(ItemList.ESSENCE_DARKNESS.get(), numberOfDrops)));
+                drops.add(new ItemEntity(entity.getCommandSenderWorld(), x, y, z, new ItemStack(ItemList.ESSENCE_DARKNESS.get(), numberOfDrops)));
                 break;
             case "light":
-                drops.add(new ItemEntity(entity.getEntityWorld(), x, y, z, new ItemStack(ItemList.ESSENCE_LIGHT.get(), numberOfDrops)));
+                drops.add(new ItemEntity(entity.getCommandSenderWorld(), x, y, z, new ItemStack(ItemList.ESSENCE_LIGHT.get(), numberOfDrops)));
                 break;
             case "earth":
-                drops.add(new ItemEntity(entity.getEntityWorld(), x, y, z, new ItemStack(ItemList.ESSENCE_EARTH.get(), numberOfDrops)));
+                drops.add(new ItemEntity(entity.getCommandSenderWorld(), x, y, z, new ItemStack(ItemList.ESSENCE_EARTH.get(), numberOfDrops)));
                 break;
             case "wind":
-                drops.add(new ItemEntity(entity.getEntityWorld(), x, y, z, new ItemStack(ItemList.ESSENCE_WIND.get(), numberOfDrops)));
+                drops.add(new ItemEntity(entity.getCommandSenderWorld(), x, y, z, new ItemStack(ItemList.ESSENCE_WIND.get(), numberOfDrops)));
                 break;
             case "flora":
-                drops.add(new ItemEntity(entity.getEntityWorld(), x, y, z, new ItemStack(ItemList.ESSENCE_FLORA.get(), numberOfDrops)));
+                drops.add(new ItemEntity(entity.getCommandSenderWorld(), x, y, z, new ItemStack(ItemList.ESSENCE_FLORA.get(), numberOfDrops)));
                 break;
             }
         }
@@ -87,7 +87,7 @@ public class ServerEvents {
     @SubscribeEvent
     public static void livingHurtEvent(LivingHurtEvent event) {
         List<ItemStack> mirrorStacks = new ArrayList<ItemStack>();
-        event.getEntityLiving().getArmorInventoryList().forEach(armorStack -> {
+        event.getEntityLiving().getArmorSlots().forEach(armorStack -> {
             if (armorStack.getItem() instanceof MirrorArmor) {
                 mirrorStacks.add(armorStack);
             }
