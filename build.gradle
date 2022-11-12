@@ -69,17 +69,13 @@ minecraft {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${version_forge}"
-	
-//	implementation fg.deobf("io.tavi007.elementalCombat:elementalcombat-forge-1.16.5-1.1.1-api:${version_elementalcombat}") //this will work
-    compileOnly fg.deobf("io.tavi007.elementalCombat:elementalcombat-forge-${version_elementalcombat}-api:${version_elementalcombat}")
-    runtimeOnly fg.deobf("io.tavi007.elementalCombat:elementalcombat-forge-${version_elementalcombat}:${version_elementalcombat}")
-	
-	//compileOnly fg.deobf("curse.maven:elementalcombat-397825:3250931") //this will work
-	//runtimeOnly fg.deobf("curse.maven:elementalcombat-397825:3250931")
-	
+    
+    compileOnly fg.deobf("curse.maven:elementalcombat-397825:4081166")
+    runtimeOnly fg.deobf("curse.maven:elementalcombat-397825:4081163")
+
     compileOnly fg.deobf("mezz.jei:jei-${version_jei}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-${version_jei}")
-	
+
 
 }
 
